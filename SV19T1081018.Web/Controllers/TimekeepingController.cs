@@ -1,4 +1,5 @@
-﻿using SV19T1081018.Web.Models;
+﻿using SV19T1081018.DomainModel;
+using SV19T1081018.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,36 +14,45 @@ namespace SV19T1081018.Web.Controllers.NewFolder1
     {
         public ActionResult Index()
         {
-            PaginationSearchInput model = Session["NHANVIEN_SEARCH"] as PaginationSearchInput;
+            CongPaginationSearchInput model = Session["NHANVIEN_CONG_SEARCH"] as CongPaginationSearchInput;
 
             if (model == null)
             {
-                model = new PaginationSearchInput()
+                model = new CongPaginationSearchInput()
                 {
                     Page = 1,
                     PageSize = 10,
-                    SearchValue = ""
+                    SearchValue = "",
+                    Thang = DateTime.Now.Month,
+                    Nam = DateTime.Now.Year
                 };
             }
             return View(model);
         }
 
-        public ActionResult Search(Models.PaginationSearchInput input)
+        public ActionResult Search(Models.CongPaginationSearchInput input)
         {
             int rowCount = 0;
             var data = BusinessLayer.CommonDataService.ListOfNhanVien(input.Page, input.PageSize, input.SearchValue, out rowCount);
-            Models.NhanVienPaginationResult model = new Models.NhanVienPaginationResult()
+            Models.CongPaginationResult model = new Models.CongPaginationResult()
             {
                 Page = input.Page,
                 PageSize = input.PageSize,
                 SearchValue = input.SearchValue,
                 RowCount = rowCount,
+                Thang = input.Thang,
+                Nam = input.Nam,
                 Data = data
             };
 
-            Session["NHANVIEN_SEARCH"] = input;
+            Session["NHANVIEN_CONG_SEARCH"] = input;
 
             return View(model);
+        }
+        [Route("edit/{MaNhanVien}/{Thang}/{Nam}")]
+        public ActionResult Edit(int MaNhanVien, int Thang, int Nam)
+        {
+            return View();
         }
     }
 }

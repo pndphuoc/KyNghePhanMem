@@ -96,6 +96,7 @@ namespace SV19T1081018.DataLayer.SQLServer
                     {
                         MaNhanVien = Convert.ToInt32(result["MaNhanVien"]),
                         TenNhanVien = Convert.ToString(result["TenNhanVien"]),
+                        MaChucVu = Convert.ToInt32(result["MaChucVu"]),
                         SoDienThoai = Convert.ToString(result["SoDienThoai"]),
                         Anh = Convert.ToString(result["Anh"]),
                         NgaySinh = Convert.ToDateTime(result["NgaySinh"]),

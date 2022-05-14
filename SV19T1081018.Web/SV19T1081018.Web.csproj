@@ -129,6 +129,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BasePaginationResult.cs" />
+    <Compile Include="Models\CongPaginationResult.cs" />
+    <Compile Include="Models\CongPaginationSearchInput.cs" />
     <Compile Include="Models\NhanVienPaginationResult.cs" />
     <Compile Include="Models\PaginationSearchInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -5787,6 +5789,7 @@
     <Content Include="Views\Employee\Search.cshtml" />
     <Content Include="Views\Timekeeping\Index.cshtml" />
     <Content Include="Views\Timekeeping\Search.cshtml" />
+    <Content Include="Views\Timekeeping\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppCodes\" />

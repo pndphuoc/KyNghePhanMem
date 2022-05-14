@@ -9,6 +9,7 @@ namespace SV19T1081018.DomainModel
     public class NhanVien
     {
         public int MaNhanVien { get; set; }
+        public int MaChucVu { get; set; }
         public string TenNhanVien { get; set; }
         public DateTime NgaySinh { get; set; }
         public string Anh { get; set; }
