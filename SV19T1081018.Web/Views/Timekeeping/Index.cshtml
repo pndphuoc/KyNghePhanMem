@@ -1,0 +1,44 @@
+﻿@model SV19T1081018.Web.Models.PaginationSearchInput
+@{
+    ViewBag.Title = "Bảng chấm công";
+}
+<form action="~/timekeeping/search" id="searchInput">
+    @Html.HiddenFor(m => m.PageSize)
+    <div class="input-group">
+        <input type="text" name="searchValue"
+               class="form-control" autofocus
+               placeholder="Nhập tên nhân viên cần tìm" value="@Model.SearchValue"
+               style="border-top-left-radius: 10px;
+               border-bottom-left-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <span class="input-group-btn">
+            <button type="submit" id="search-btn" class="btn btn-flat btn-info"
+                    style="border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <i class="fa fa-search"></i>
+            </button>
+            <a href="~/employee/create"
+               class="btn btn-flat btn-primary"
+               style="margin-left:5px; border-radius: 10px;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <i class="fa fa-plus"></i> Bổ sung
+            </a>
+        </span>
+    </div>
+</form>
+<div id="searchResult"></div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            doSearch(@Model.Page);
+            $("#searchInput").submit(function (e) {
+                e.preventDefault();
+                doSearch(1);
+                return false;
+            });
+        });
+
+    </script>
+}
