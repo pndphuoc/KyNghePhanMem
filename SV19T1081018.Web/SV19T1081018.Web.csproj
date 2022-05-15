@@ -5790,6 +5790,8 @@
     <Content Include="Views\Timekeeping\Index.cshtml" />
     <Content Include="Views\Timekeeping\Search.cshtml" />
     <Content Include="Views\Timekeeping\Edit.cshtml" />
+    <Content Include="Views\Timekeeping\EditCong.cshtml" />
+    <Content Include="Views\Timekeeping\CreateCong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppCodes\" />

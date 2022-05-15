@@ -47,6 +47,7 @@
     <Compile Include="INguoiDungDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLServer\AccountDAL.cs" />
+    <Compile Include="SQLServer\CaLamViecDAL.cs" />
     <Compile Include="SQLServer\ChucVuDAL.cs" />
     <Compile Include="SQLServer\CongDAL.cs" />
     <Compile Include="SQLServer\NguoiDungDAL.cs" />

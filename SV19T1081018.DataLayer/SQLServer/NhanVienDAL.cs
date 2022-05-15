@@ -52,7 +52,40 @@ namespace SV19T1081018.DataLayer.SQLServer
 
         public NhanVien Get(int id)
         {
-            throw new NotImplementedException();
+            NhanVien data = null;
+
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "select * from NhanVien where MaNhanVien = @manhanvien";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+                cmd.Parameters.AddWithValue("manhanvien", id);
+
+                var dbReader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+                if (dbReader.Read())
+                {
+                    data = new NhanVien()
+                    {
+                        MaNhanVien = Convert.ToInt32(dbReader["MaNhanVien"]),
+                        TenNhanVien = Convert.ToString(dbReader["TenNhanVien"]),
+                        NgaySinh = Convert.ToDateTime(dbReader["NgaySinh"]),
+                        MaChucVu = Convert.ToInt32(dbReader["MaChucVu"]),
+                        Anh = Convert.ToString(dbReader["Anh"]),
+                        GhiChu = Convert.ToString(dbReader["GhiChu"]),
+                        SoDienThoai = Convert.ToString(dbReader["SoDienThoai"]),
+                        isNam = Convert.ToBoolean(dbReader["isNam"]),
+                        NgayVaoLam = Convert.ToDateTime(dbReader["NgayVaoLam"])
+
+                    };
+                }
+
+                cn.Close();
+            }
+
+            return data;
         }
 
         public bool InUsed(int id)

@@ -9,12 +9,14 @@ namespace SV19T1081018.DataLayer
 {
     public interface ICongDAL
     {
-        Cong GetCongTheoNgay(DateTime Ngay);
+        Cong GetCong(int MaCong);
+        List<Cong> GetCongTheoNgay(int MaNhanVien, int Ngay, int Thang, int Nam);
 
-        Cong GetCongTheoThang(int Thang);
 
         Cong GetCongTheoNhanVien(int MaNhanVien);
         Cong GetCongTungThangCuaNhanVien(int MaNhanVien, int Thang);
         int CountCongTungThangCuaNhanVien(int MaNhanVien, int Thang, int Nam);
+
+        bool UpdateCong(Cong cong);
     }
 }

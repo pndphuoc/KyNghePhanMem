@@ -10,7 +10,7 @@ namespace SV19T1081018.DomainModel
     {
         public int MaCaLamViec { get; set; }
         public string TenCaLamViec { get; set; }
-        public DateTime ThoiGianBatDau { get; set; }
-        public DateTime ThoiGianKetThuc { get; set; }
+        public string ThoiGianBatDau { get; set; }
+        public string ThoiGianKetThuc { get; set; }
     }
 }

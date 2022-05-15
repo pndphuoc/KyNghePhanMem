@@ -18,6 +18,7 @@ namespace SV19T1081018.BusinessLayer
         private static readonly ICommonDAL<NhanVien> nhanVienDB;
         private static readonly ICongDAL congDB;
         private static readonly ICommonDAL<ChucVu> chucVuDB;
+        private static readonly ICommonDAL<CaLamViec> caLamViecDB;
         static CommonDataService()
         {
             string provider = ConfigurationManager.ConnectionStrings["DB"].ProviderName;
@@ -30,23 +31,53 @@ namespace SV19T1081018.BusinessLayer
                     nhanVienDB = new DataLayer.SQLServer.NhanVienDAL(connectionString);
                     congDB = new DataLayer.SQLServer.CongDAL(connectionString);
                     chucVuDB = new DataLayer.SQLServer.ChucVuDAL(connectionString);
+                    caLamViecDB = new DataLayer.SQLServer.CaLamViecDAL(connectionString);
                     break;
             }
         }
-
+        #region Nhân viên
         public static List<NhanVien> ListOfNhanVien(int page, int pageSize, string searchValue, out int rowCount)
         {
             rowCount = nhanVienDB.Count(searchValue);
             return nhanVienDB.List(page, pageSize, searchValue);
         }
-
-        public static int CountCongTungThangCuaNhanVien(int MaNhanVien, int Thang, int Nam)
+        public static NhanVien GetNhanVien(int MaNhanVien)
         {
-            return congDB.CountCongTungThangCuaNhanVien(MaNhanVien, Thang, Nam);
+            return nhanVienDB.Get(MaNhanVien);
         }
+        #endregion
+
+        #region Chức vụ
         public static ChucVu GetChucVu(int MaChucVu)
         {
             return chucVuDB.Get(MaChucVu);
         }
+        #endregion
+
+        #region Công
+        public static int CountCongTungThangCuaNhanVien(int MaNhanVien, int Thang, int Nam)
+        {
+            return congDB.CountCongTungThangCuaNhanVien(MaNhanVien, Thang, Nam);
+        }
+        public static List<Cong> GetCongTheoNgay(int MaNhanVien, int Ngay, int Thang, int Nam)
+        {
+            return congDB.GetCongTheoNgay(MaNhanVien, Ngay, Thang, Nam);
+        }
+        public static Cong GetCong(int MaCong)
+        {
+            return congDB.GetCong(MaCong);
+        }
+        public static bool UpdateCong(Cong cong)
+        {
+            return congDB.UpdateCong(cong);
+        }
+        #endregion
+
+        #region Ca làm việc
+        public static CaLamViec GetCaLamViec(int MaCaLamViec)
+        {
+            return caLamViecDB.Get(MaCaLamViec);
+        }
+        #endregion
     }
 }

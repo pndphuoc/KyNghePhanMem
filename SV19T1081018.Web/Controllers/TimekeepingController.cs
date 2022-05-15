@@ -1,4 +1,5 @@
-﻿using SV19T1081018.DomainModel;
+﻿using SV19T1081018.BusinessLayer;
+using SV19T1081018.DomainModel;
 using SV19T1081018.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,62 @@ namespace SV19T1081018.Web.Controllers.NewFolder1
         [Route("edit/{MaNhanVien}/{Thang}/{Nam}")]
         public ActionResult Edit(int MaNhanVien, int Thang, int Nam)
         {
+            ViewBag.Thang = Thang;
+            ViewBag.Nam = Nam;
+            ViewBag.MaNhanVien = MaNhanVien;
+            ViewData["Thang"] = Thang;
+            ViewData["Nam"] = Nam;
+            ViewData["MaNhanVien"] = MaNhanVien;
             return View();
+        }
+        [Route("createcong/{MaNhanVien}/{Ngay}/{Thang}/{Nam}")]
+        public ActionResult CreateCong(int MaNhanVien, int Ngay, int Thang, int Nam)
+        {
+            Cong model = new Cong()
+            {
+                MaCong = 0,
+                MaNhanVien = MaNhanVien
+
+            };
+
+            ViewBag.Title = "Thêm công";
+            return View(model);
+        }
+
+
+        [Route("editcong/{MaNhanVien}/{MaCong}")]
+        public ActionResult EditCong (int MaNhanVien, int MaCong)
+        {
+            Cong model = new Cong();
+            model = BusinessLayer.CommonDataService.GetCong(MaCong);
+            return View("CreateCong", model);
+        }
+
+        public ActionResult Save(Cong model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Title = model.MaCong == 0 ? "Bổ sung công làm việc" : "Cập nhật công của nhân viên";
+                return View("Create", model);
+
+            }
+            if (model.MaCong > 0)
+                CommonDataService.UpdateCong(model);
+            //else
+            //{
+            //    PaginationSearchInput input = new PaginationSearchInput();
+
+            //    input = new PaginationSearchInput()
+            //    {
+            //        Page = 1,
+            //        PageSize = 10,
+            //        SearchValue = model.CustomerName
+            //    };
+
+            //    CommonDataService.AddCustomer(model);
+            //    Session["CUSTOMER_SEARCH"] = input;
+            //}
+            return RedirectToAction($"Edit/{model.MaNhanVien}/{model.ThoiGianVaoCa.Month}/{model.ThoiGianVaoCa.Year}");
         }
     }
 }
