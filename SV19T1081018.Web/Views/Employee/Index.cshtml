@@ -1,0 +1,40 @@
+﻿@model SV19T1081018.Web.Models.PaginationSearchInput
+
+@{
+    ViewBag.Title = "Nhân viên";
+}
+
+<div class="box box-primary" style="border-radius: 10px">
+    <div class="box-body">
+        <form action="~/employee/search" id="searchInput">
+            @Html.HiddenFor(m => m.PageSize)
+            <div class="input-group" style="border-radius: 10px">
+                <input type="text" name="searchValue" class="form-control" placeholder="Nhập Thông Tin nhân viên cần tìm" value="@Model.SearchValue">
+                <span class="input-group-btn" style="border-radius: 10px">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat btn-info">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <a href="~/employee/create" class="btn btn-flat btn-primary" style="margin-left: 5px; border-radius: 10px">
+                        <i class="fa fa-plus" style="margin-right: 5px"></i>Thêm nhân viên
+                    </a>
+                </span>
+            </div>
+        </form>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            doSearch(@Model.Page);
+            $("#searchInput").submit(function (e) {
+                e.preventDefault();
+                doSearch(1);
+                return false;
+            });
+        });
+
+    </script>
+}
+

@@ -1,0 +1,43 @@
+﻿@model SV19T1081018.Web.Models.PaginationSearchInput
+@{
+    //ViewBag.Title = "Khách hàng";
+}
+
+<div class="box box-primary" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <div class="box-body">
+        <form id="searchInput" action="~/customer/search">
+            <div class="input-group">
+                @Html.HiddenFor(m => m.PageSize)
+
+                <input type="text" name="searchValue" class="form-control" placeholder="Nhập tên hoặc địa chỉ khách hàng" autofocus value="@Model.SearchValue" style="border-bottom-left-radius: 10px; border-top-left-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <span class="input-group-btn" style="border-radius: 10px">
+                    <button type="submit" id="search-btn" class="btn btn-flat btn-info" style="border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <a href="~/customer/create" class="btn btn-flat btn-primary" style="margin-left: 5px; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <i class="fa fa-plus" style="margin-right: 5px"></i>Thêm khách hàng
+                    </a>
+                </span>
+            </div>
+        </form>
+        <div id="searchResult">
+
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            doSearch(@Model.Page);
+            $("#searchInput").submit(function (e) {
+                e.preventDefault();
+                doSearch(1);
+                return false;
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,17 @@
+P:\MyWeb\SV19T1081018\SV19T1081018.DataLayer\bin\Debug\SV19T1081018.DataLayer.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.DataLayer\bin\Debug\SV19T1081018.DataLayer.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.DataLayer\bin\Debug\SV19T1081018.DomainModel.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.DataLayer\bin\Debug\SV19T1081018.DomainModel.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.DataLayer\obj\Debug\SV19T1081018.DataLayer.csprojAssemblyReference.cache
+P:\MyWeb\SV19T1081018\SV19T1081018.DataLayer\obj\Debug\SV19T1081018.DataLayer.csproj.CopyComplete
+P:\MyWeb\SV19T1081018\SV19T1081018.DataLayer\obj\Debug\SV19T1081018.DataLayer.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.DataLayer\obj\Debug\SV19T1081018.DataLayer.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DataLayer\bin\Debug\SV19T1081018.DataLayer.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DataLayer\bin\Debug\SV19T1081018.DataLayer.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DataLayer\bin\Debug\SV19T1081018.DomainModel.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DataLayer\bin\Debug\SV19T1081018.DomainModel.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DataLayer\obj\Debug\SV19T1081018.DataLayer.csproj.AssemblyReference.cache
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DataLayer\obj\Debug\SV19T1081018.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DataLayer\obj\Debug\SV19T1081018.DataLayer.csproj.CopyComplete
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DataLayer\obj\Debug\SV19T1081018.DataLayer.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DataLayer\obj\Debug\SV19T1081018.DataLayer.pdb

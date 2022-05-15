@@ -1,0 +1,87 @@
+﻿@model SV19T1081018.Web.Models.ProductPaginationSearchInput
+@{
+    ViewBag.Title = "Mặt hàng";
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border ">
+    </div>
+    <div class="box-body">
+        <form action="~/product/search" id="searchInput">
+            @Html.HiddenFor(m => m.PageSize)
+            <div class="row">
+                <div class="col-sm-3">
+                    <select class="form-control" name="CategoryID" style="border-radius: 10px;
+                            border-radius: 10px;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">>
+                        <option value="0">-- Loại hàng --</option>
+                        @foreach (var item in SV19T1081018.BusinessLayer.CommonDataService.ListOfCategories())
+                        {
+                            if (item.CategoryID == Model.CategoryID)
+                            {
+                                <option selected value="@item.CategoryID">@item.CategoryName</option>
+                            }
+                            else
+                            {
+                                <option value="@item.CategoryID">@item.CategoryName</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <select class="form-control" name="SupplierID" style="border-radius: 10px;
+                            border-radius: 10px;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <option value="0" >-- Nhà cung cấp --</option>
+                        @foreach (var item in SV19T1081018.BusinessLayer.CommonDataService.ListOfSuppliers())
+                        {
+                            if (item.SupplierID == Model.SupplierID)
+                            {
+                                <option selected value="@item.SupplierID">@item.SupplierName</option>
+                            }
+                            else
+                            {
+                                <option value="@item.SupplierID">@item.SupplierName</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-6 input-group">
+                    <input type="text" name="searchValue"
+                           class="form-control" value="@Model.SearchValue" autofocus style="border-top-left-radius: 10px;
+                            border-bottom-left-radius: 10px;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+                           placeholder="Nhập tên mặt hàng cần tìm">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat btn-info"  style="border-top-right-radius: 10px;
+                            border-bottom-right-radius: 10px;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <a href="~/product/create"
+                           class="btn btn-flat btn-primary"
+                           style="margin-left:5px; border-radius: 10px;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                            <i class="fa fa-plus"></i> Bổ sung
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </form>
+        <div id="searchResult"></div>
+    </div>
+</div>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            doSearch(@Model.Page);
+            $("#searchInput").submit(function (e) {
+                e.preventDefault();
+                doSearch(1);
+                return false;
+            });
+        });
+
+    </script>
+}
+

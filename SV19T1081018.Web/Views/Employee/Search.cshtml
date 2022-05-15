@@ -1,0 +1,86 @@
+﻿@model SV19T1081018.Web.Models.EmployeePaginationResult
+@{
+    Layout = null;
+}
+
+
+
+<div class="box-body">
+    <strong>@Model.RowCount</strong> nhân viên trong tổng số <strong>@Model.PageCount</strong> trang</p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover" style="border-radius: 10px">
+            <thead>
+                <tr class="bg-primary">
+                    <th>Mã nhân viên</th>
+                    <th>Họ và Tên</th>
+                    <th>Chức Vụ</th>
+                    <th>Ngày sinh</th>
+                    <th>Ảnh</th>
+                    <th>Giới Tính</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Ngày Vào Làm</th>
+
+                    <th style="width: 80px">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Data)
+             {
+                <tr>
+                    <td style="width: 100px">@item.MaNhanVien</td>
+                    <td>@item.TenNhanVien</td>
+                    @foreach (var tam in SV19T1081018.BusinessLayer.CommonDataService.DanhSachChucVu())
+                    {
+
+                        if (item.MaChucVu == tam.MaChucVu)
+                        {<td>@tam.TenChucVu</td>
+
+                            break;
+                        }
+                    }
+                    
+                    <td>@string.Format("{0:dd/MM/yyyy}", item.NgaySinh)</td>
+                    <td>
+                        <img src=" @item.Anh" style="height: 100px; width: 70px" />
+                    </td>
+                    @if (item.isNam == true)
+                    {
+                        <td>Nam</td>
+                    }
+                    else
+                    {
+                        <td>Nữ</td>
+                    }
+
+                    <td>@item.SoDienThoai</td>
+                    <td>@string.Format("{0:dd/MM/yyyy}", item.NgayVaoLam)</td>
+
+                    <td class="text-right">
+                        <a href="~/employee/edit/@item.MaNhanVien" class="btn btn-primary btn-flat btn-xs"> <i class="fa fa-edit"> </i></a>
+                        <a href="~/employee/delete/@item.MaNhanVien" class="btn btn-danger btn-flat btn-xs"> <i class="fa fa-remove"> </i></a>
+                    </td>
+                </tr>
+            }
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+<div class="box-footer text-center">
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (i == Model.Page)
+            {
+                <li class="active"><a href="#">@i</a></li>
+            }
+            else
+            {
+                <li><a href="javascript:;" onclick="doSearch(@i)">@i</a></li>
+            }
+        }
+    </ul>
+</div>

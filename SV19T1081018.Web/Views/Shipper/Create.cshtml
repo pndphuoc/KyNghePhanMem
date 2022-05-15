@@ -1,0 +1,36 @@
+﻿@model SV19T1081018.DomainModel.Shipper
+@{
+    //ViewBag.Title = "Create";
+}
+
+<div class="box box-primary" style="border-radius: 10px">
+    <div class="box-body">
+        <form action="~/shipper/save" method="post">
+            <input type="hidden" value="@Model.ShipperID" name="ShipperID" />
+            <div class="form-group">
+                <label for="ShipperName">Tên người giao hàng:</label>
+                @Html.TextBoxFor(m => m.ShipperName, new { @class = "form-control", @style = "border-radius: 10px" })
+                @Html.ValidationMessage("ShipperName", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="pwd">Số điện thoại:</label>
+                @Html.TextBoxFor(m => m.Phone, new {@type="number", @class = "form-control", @style = "border-radius: 10px" })
+                @Html.ValidationMessage("Phone", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success" style="border-radius: 10px;">
+                        <i class="fa fa-save"></i>
+                        Lưu dữ liệu
+                    </button>
+                    <a class="btn btn-default" href="~/shipper" style="border-radius: 10px;">
+                        <i class="fa fa-backward"></i>
+                        Quay lại
+                    </a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

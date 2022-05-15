@@ -1,0 +1,53 @@
+﻿@model SV19T1081018.DomainModel.ProductAttribute
+@{
+
+}
+
+<div class="box box-primary" style = "border-radius: 10px">
+    <div class="box-header with-border " >
+    </div>
+
+    <div class="box-body" >
+        <form class="form-horizontal" action="~/product/SaveAttribute" method="post">
+            @Html.HiddenFor(m => m.AttributeID)
+            @Html.HiddenFor(m => m.ProductID)
+            <div class="form-group">
+                <label class="control-label col-sm-2">Tên thuộc tính:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.AttributeName, new { @class = "form-control", @autofocus = "", style = "border-radius: 10px" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Giá trị thuộc tính:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.AttributeValue, new { @class = "form-control", style = "border-radius: 10px" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Thứ tự hiển thị:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.DisplayOrder, new {@type="number", @class = "form-control", style = "border-radius: 10px" })
+                    @Html.HiddenFor(m => m.DisplayOrder)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" style = "border-radius: 10px">
+                        <i class="fa fa-save"></i> Lưu dữ liệu
+                    </button>
+                    <a class="btn btn-warning" href="~/product/edit/@Model.ProductID" style = "border-radius: 10px">
+                        <i class="fa fa-ban"></i> Quay lại
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="box-footer text-center">
+    </div>
+
+</div>
+
+

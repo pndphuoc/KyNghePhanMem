@@ -1,0 +1,21 @@
+P:\MyWeb\SV19T1081018\SV19T1081018.BusinessLayer\obj\Debug\SV19T1081018.BusinessLayer.csprojAssemblyReference.cache
+P:\MyWeb\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.BusinessLayer.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.BusinessLayer.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.DataLayer.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.DomainModel.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.DataLayer.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.DomainModel.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.BusinessLayer\obj\Debug\SV19T1081018.BusinessLayer.csproj.CopyComplete
+P:\MyWeb\SV19T1081018\SV19T1081018.BusinessLayer\obj\Debug\SV19T1081018.BusinessLayer.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.BusinessLayer\obj\Debug\SV19T1081018.BusinessLayer.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.BusinessLayer.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.BusinessLayer.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.DataLayer.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.DomainModel.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.DataLayer.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.BusinessLayer\bin\Debug\SV19T1081018.DomainModel.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.BusinessLayer\obj\Debug\SV19T1081018.BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.BusinessLayer\obj\Debug\SV19T1081018.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.BusinessLayer\obj\Debug\SV19T1081018.BusinessLayer.csproj.CopyComplete
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.BusinessLayer\obj\Debug\SV19T1081018.BusinessLayer.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.BusinessLayer\obj\Debug\SV19T1081018.BusinessLayer.pdb

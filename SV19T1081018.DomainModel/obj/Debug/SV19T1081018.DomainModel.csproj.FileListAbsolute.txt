@@ -1,0 +1,11 @@
+P:\MyWeb\SV19T1081018\SV19T1081018.DomainModel\bin\Debug\SV19T1081018.DomainModel.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.DomainModel\bin\Debug\SV19T1081018.DomainModel.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.DomainModel\obj\Debug\SV19T1081018.DomainModel.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.DomainModel\obj\Debug\SV19T1081018.DomainModel.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.DomainModel\obj\Debug\SV19T1081018.DomainModel.csprojAssemblyReference.cache
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DomainModel\bin\Debug\SV19T1081018.DomainModel.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DomainModel\bin\Debug\SV19T1081018.DomainModel.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DomainModel\obj\Debug\SV19T1081018.DomainModel.csproj.AssemblyReference.cache
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DomainModel\obj\Debug\SV19T1081018.DomainModel.csproj.CoreCompileInputs.cache
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DomainModel\obj\Debug\SV19T1081018.DomainModel.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.DomainModel\obj\Debug\SV19T1081018.DomainModel.pdb

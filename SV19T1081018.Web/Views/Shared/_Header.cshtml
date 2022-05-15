@@ -1,0 +1,53 @@
+﻿@using SV19T1081018.DomainModel;
+@{ 
+    Session["Account"] = SV19T1081018.BusinessLayer.AccountService.GetNguoiDung(Convert.ToString(User.Identity.Name));
+}
+<header class="main-header">
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>A</b>LT</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">Keycap<b>Store</b></span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        
+                        <span class="hidden-xs">@(((NguoiDung)Session["Account"]).HoTen)</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                         
+
+                            <p>
+                                @(((NguoiDung)Session["Account"]).HoTen)
+                            </p>
+                        </li>
+                        
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="/account/changepassword" class="btn btn-default btn-flat">Đổi mật khẩu</a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="~/account/logout" class="btn btn-default btn-flat">Đăng xuất</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

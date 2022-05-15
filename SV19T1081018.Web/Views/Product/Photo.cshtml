@@ -1,0 +1,70 @@
+﻿@model SV19T1081018.DomainModel.ProductPhoto
+@{
+
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border ">
+    </div>
+
+    <div class="box-body">
+        <form class="form-horizontal" action="~/product/savephoto" method="post" enctype="multipart/form-data">
+            @Html.HiddenFor(m => m.PhotoID)
+            @Html.HiddenFor(m => m.ProductID)
+            <div class="form-group">
+                <label class="control-label col-sm-2">Ảnh minh họa:</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" name="uploadPhoto" accept="image/*"
+                           onchange="document.getElementById('Photo').src = window.URL.createObjectURL(this.files[0])" />
+                    @Html.ValidationMessageFor(m => m.Photo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <img id="Photo" src="@Model.Photo" class="img img-bordered" style="width:200px" />
+                    @Html.HiddenFor(m => m.Photo)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Mô tả:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control", @autofocus = "", style = "border-radius: 10px" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Thứ tự hiển thị:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.DisplayOrder, new { @type = "number", @class = "form-control", @autofocus = "", style = "border-radius: 10px" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10 checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.IsHidden)
+                        Ẩn ảnh (không hiển thị với khách hàng)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-save"></i> Lưu dữ liệu
+                    </button>
+                    <a class="btn btn-warning" href="~/product/edit/@Model.ProductID">
+                        <i class="fa fa-ban"></i> Quay lại
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="box-footer text-center">
+    </div>
+
+</div>
+

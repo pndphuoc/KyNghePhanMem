@@ -1,0 +1,169 @@
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.Web.dll.config
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.Web.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.Web.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\csc.exe
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\csc.exe.config
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\csc.rsp
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\csi.exe
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\csi.exe.config
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\csi.rsp
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.Managed.Core.targets
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.Win32.Primitives.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.AppContext.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Collections.Immutable.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Console.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Globalization.Calendars.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.IO.Compression.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.IO.Compression.ZipFile.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.IO.FileSystem.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Net.Http.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Net.Sockets.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Reflection.Metadata.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.ValueTuple.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Xml.ReaderWriter.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Xml.XmlDocument.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Xml.XPath.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Xml.XPath.XDocument.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\vbc.exe
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\vbc.exe.config
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\vbc.rsp
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\VBCSCompiler.exe
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\roslyn\VBCSCompiler.exe.config
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\Antlr3.Runtime.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\Microsoft.Web.Infrastructure.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\Newtonsoft.Json.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.Helpers.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.Mvc.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.Optimization.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.Razor.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.Deployment.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.Razor.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\WebGrease.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.Helpers.xml
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.Mvc.xml
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.Optimization.xml
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.Razor.xml
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.xml
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.Deployment.xml
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.Razor.xml
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\Newtonsoft.Json.xml
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\Antlr3.Runtime.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\obj\Debug\SV19T1081018.Web.csprojAssemblyReference.cache
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\obj\Debug\SV19T1081018.Web.csproj.CopyComplete
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\obj\Debug\SV19T1081018.Web.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\obj\Debug\SV19T1081018.Web.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.BusinessLayer.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.DataLayer.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.DomainModel.dll
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.BusinessLayer.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.DataLayer.pdb
+P:\MyWeb\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.DomainModel.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.Web.dll.config
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.Web.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.Web.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\csc.exe
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\csc.exe.config
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\csc.rsp
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\csi.exe
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\csi.exe.config
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\csi.rsp
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.AppContext.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Console.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.IO.Compression.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Net.Http.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Net.Sockets.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.ValueTuple.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Xml.XPath.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\vbc.exe
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\vbc.exe.config
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\vbc.rsp
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\VBCSCompiler.exe
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\Antlr3.Runtime.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\Newtonsoft.Json.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.BusinessLayer.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.DataLayer.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.DomainModel.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.Helpers.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.Mvc.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.Optimization.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.Razor.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\WebGrease.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.BusinessLayer.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.DataLayer.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\SV19T1081018.DomainModel.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.Helpers.xml
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.Mvc.xml
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.Optimization.xml
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.Razor.xml
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.xml
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\Newtonsoft.Json.xml
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\Antlr3.Runtime.pdb
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\obj\Debug\SV19T1081018.Web.csproj.AssemblyReference.cache
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\obj\Debug\SV19T1081018.Web.csproj.CoreCompileInputs.cache
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\obj\Debug\SV19T1081018.Web.csproj.CopyComplete
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\obj\Debug\SV19T1081018.Web.dll
+C:\Users\trann\Downloads\SV19T1081018 (4)\SV19T1081018\SV19T1081018.Web\obj\Debug\SV19T1081018.Web.pdb

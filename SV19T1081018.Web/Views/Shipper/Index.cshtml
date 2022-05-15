@@ -1,0 +1,43 @@
+﻿@model SV19T1081018.Web.Models.PaginationSearchInput
+@{
+    ViewBag.Title = "Shipper";
+}
+
+<div class="box box-primary" style="border-radius: 10px">
+    <div class="box-body">
+        <form action="~/shipper/search" id="searchInput">
+            @Html.HiddenFor(m => m.PageSize)
+            <div class="input-group" style="border-radius: 10px">
+                @Html.TextBoxFor(m => m.SearchValue, new {@class="form-control",@autofocus="", @placeholder="Nhập tên hoặc số điện thoại người giao hàng", @style="border-bottom-left-radius: 10px;border-top-left-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" })
+                <span class="input-group-btn" style="border-radius: 10px">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat btn-info" style="border-bottom-right-radius: 10px; border-top-right-radius: 10px; 
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <a href="~/shipper/create" class="btn btn-flat btn-primary" style="margin-left: 5px; border-radius: 10px">
+                        <i class="fa fa-plus" style="margin-right: 5px"></i>Thêm người giao hàng
+                    </a>
+                </span>
+            </div>
+        </form>
+        <div id="searchResult">
+
+        </div>
+    </div>
+
+
+    <!-- /.box-footer-->
+</div>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            doSearch(@Model.Page);
+            $("#searchInput").submit(function (e) {
+                e.preventDefault();
+                doSearch(1);
+                return false;
+            });
+        });
+
+    </script>
+}
