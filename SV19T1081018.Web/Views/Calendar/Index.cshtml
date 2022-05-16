@@ -1,0 +1,239 @@
+﻿
+@{
+    ViewBag.Title = "Lịch làm việc của nhân viên";
+}
+<style>
+
+    .table td button:hover {
+        background: #72c9e1;
+    }
+</style>
+<div class="box box-primary">
+
+    <div class="box-body">
+
+
+        @if (Convert.ToInt32(Session["note"]) == 1)
+        {
+            <div class="alert alert-success" role="alert" style="width:300px;">
+                Sắp xếp việc làm thành công!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            Session["Note"] = 4;
+        }
+        @if (Convert.ToInt32(Session["note"]) == 2)
+        {
+            <div class="alert alert-danger" role="alert" style="width:300px;">
+                Đã xóa nhân viên khỏi calendar!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            Session["Note"] = 4;
+        }
+
+        <!-- /.box-footer-->
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr class="bg-primary">
+                <th style="width:90px">Ca làm việc</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr style="height:150px">
+                <td style="border:0.2px solid #ccc4c4">
+                    <strong>Ca sáng</strong>
+                </td>
+                @for (int i = 2; i < 9; i++)
+                {
+
+                    <td style="border:0.2px solid #ccc4c4">
+                        <button type="button" data-toggle="modal" data-target="#modal-1-@i" style="width:100%;height:150px;border:1px solid #ffffff;">
+                            @foreach (var item in SV19T1081018.BusinessLayer.CommonDataService.GetList(1, i))
+                            {
+                                foreach (var s in SV19T1081018.BusinessLayer.CommonDataService.ListOfChucVu())
+                                {
+                                    if (s.MaChucVu == item.MaChucVu)
+                                    {
+                                        <i class="text-aqua">@item.TenNhanVien - @s.TenChucVu</i><br>
+                                    }
+                                }
+                            }
+                        </button>
+                    </td>
+
+                }
+            </tr>
+            <tr style="height:150px;">
+                <td style="border:0.2px solid #ccc4c4">
+                    <strong>Ca chiều</strong>
+                </td>
+                @for (int i = 2; i < 9; i++)
+                {
+                    <td style="border:0.2px solid #ccc4c4">
+                        <button type="button" data-toggle="modal" data-target="#modal-2-@i" style="width:100%;height:150px;border:1px solid #ffffff;">
+                            @foreach (var item in SV19T1081018.BusinessLayer.CommonDataService.GetList(2, i))
+                            {
+                                foreach (var s in SV19T1081018.BusinessLayer.CommonDataService.ListOfChucVu())
+                                {
+                                    if (s.MaChucVu == item.MaChucVu)
+                                    {
+                                        <i class="text-red">@item.TenNhanVien - @s.TenChucVu</i><br>
+                                    }
+                                }
+                            }
+                        </button>
+                    </td>
+                }
+
+            </tr>
+            <tr style="height:150px">
+                <td style="border:0.2px solid #ccc4c4">
+                    <strong>Ca tối</strong>
+                </td>
+                @for (int i = 2; i < 9; i++)
+                {
+                    <td style="border:0.2px solid #ccc4c4">
+                        <button type="button" data-toggle="modal" data-target="#modal-3-@i" style="width:100%;height:150px;border:1px solid #ffffff;">
+                            @foreach (var item in SV19T1081018.BusinessLayer.CommonDataService.GetList(3, i))
+                            {
+                                foreach (var s in SV19T1081018.BusinessLayer.CommonDataService.ListOfChucVu())
+                                {
+                                    if (s.MaChucVu == item.MaChucVu)
+                                    {
+                                        <i class="text-yellow">@item.TenNhanVien - @s.TenChucVu</i><br>
+                                    }
+                                }
+                            }
+                        </button>
+                    </td>
+                }
+
+            </tr>
+
+        </tbody>
+    </table>
+    @for (int i = 1; i < 4; i++)
+    {
+        for (int j = 2; j < 9; j++)
+        {
+
+            <div id="modal-@i-@j" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            @if (i == 1)
+                            {
+                                <h4 class="modal-title">Thêm nhân viên vào Thứ @j - Ca sáng</h4>
+                            }
+                            @if (i == 2)
+                            {
+                                <h4 class="modal-title">Thêm nhân viên vào Thứ @j - Ca Chiều</h4>
+                            }
+                            @if (i == 3)
+                            {
+                                <h4 class="modal-title">Thêm nhân viên vào Thứ @j - Ca tối</h4>
+                            }
+
+                        </div>
+                        <div class="modal-body">
+                            <div class="box box-primary">
+                                <div class="box-header with-border">
+
+                                </div>
+
+                                <div class="box-body">
+
+                                    <form class="form-horizontal" action="~/calendar/save" method="post">
+                                        <table class="table table-bordered table-striped table-hover">
+                                            <thead>
+                                                <tr class="bg-primary">
+                                                    <th>Ảnh</th>
+                                                    <th>TenNhanVien</th>
+                                                    <th>Chức vụ</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th></th>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in SV19T1081018.BusinessLayer.CommonDataService.ListOfNhanVien())
+                                                {
+                                                    <tr>
+                                                        <input type="hidden" name="MaThu" value="@j">
+                                                        <input type="hidden" name="MaCaLamViec" value="@i">
+                                                        <input type="hidden" name="TenNhanVien" value="@item.TenNhanVien">
+                                                        <input type="hidden" name="MaChucVu" value="@item.MaChucVu">
+                                                        <input type="hidden" name="MaNhanVien" value="@item.MaNhanVien">
+                                                        <td>
+                                                            <img src="@item.Anh" />
+                                                        </td>
+                                                        <td>@item.TenNhanVien</td>
+                                                        @foreach (var t in SV19T1081018.BusinessLayer.CommonDataService.ListOfChucVu())
+                                                        {
+                                                            if (item.MaChucVu == t.MaChucVu)
+                                                            {
+                                                                <td>@t.TenChucVu</td>
+                                                            }
+
+                                                        }
+
+                                                        <td>@item.SoDienThoai</td>
+                                                        @if (SV19T1081018.BusinessLayer.CommonDataService.CheckNV(j, i, item.MaNhanVien) == 1)
+                                                        {
+                                                            <td><button type="submit" name="Xoa" value="2" class="btn-danger"><i class="fa fa-remove">Xóa</i></button></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><button type="submit" name="Them" value="1" class="btn-primary">Thêm</button></td>
+                                                        }
+
+                                                    </tr>
+                                                }
+                                            </tbody>
+
+                                        </table>
+                                    </form>
+
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer text-center">
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10" style="margin-left:250px">
+
+                                            <a class="btn btn-warning" data-dismiss="modal">
+                                                <i class="fa fa-backward"></i> Quay lại
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.box-footer-->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+
+

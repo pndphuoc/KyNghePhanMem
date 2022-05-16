@@ -13,42 +13,43 @@ namespace SV19T1081018.DataLayer.SQLServer
         public AccountDAL(string connectionString) : base(connectionString)
         {
         }
-        public string getOldPassword(string email)
+        public string getOldPassword(string Username)
         {
             string oldPassword = "";
-            //using (SqlConnection cn = OpenConnection())
-            //{
-            //    SqlCommand cmd = new SqlCommand();
-            //    cmd.CommandText = @"select Password from Employees where Email = @email";
-            //    cmd.CommandType = System.Data.CommandType.Text;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select Password from NguoiDung where Username = @username";
+                cmd.CommandType = System.Data.CommandType.Text;
 
-            //    cmd.Connection = cn;
-            //    cmd.Parameters.AddWithValue("email", email);
+                cmd.Connection = cn;
+                cmd.Parameters.AddWithValue("username", Username);
 
-            //    oldPassword = Convert.ToString(cmd.ExecuteScalar());
 
-            //    cn.Close();
-            //}
+                oldPassword = Convert.ToString(cmd.ExecuteScalar());
+
+                cn.Close();
+            }
             return oldPassword;
         }
-        public bool ChangePassword(string email, string newPassword)
+        public bool ChangePassword(string Username, string newPassword)
         {
             bool result = false;
-            //using (SqlConnection cn = OpenConnection())
-            //{
-            //    SqlCommand cmd = new SqlCommand();
-            //    cmd.CommandText = @"update Employees set Password = @password where Email = @email";
-            //    cmd.CommandType = System.Data.CommandType.Text;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"update NguoiDung set Password = @password where Username = @username";
+                cmd.CommandType = System.Data.CommandType.Text;
 
-            //    cmd.Connection = cn;
-            //    cmd.Parameters.AddWithValue("email", email);
-            //    cmd.Parameters.AddWithValue("password", newPassword);
-            //    //cmd.Parameters.AddWithValue("password", password);
+                cmd.Connection = cn;
+                cmd.Parameters.AddWithValue("username", Username);
+                cmd.Parameters.AddWithValue("password", newPassword);
+                //cmd.Parameters.AddWithValue("password", password);
 
-            //    result = Convert.ToBoolean(cmd.ExecuteScalar());
+                result = Convert.ToBoolean(cmd.ExecuteScalar());
 
-            //    cn.Close();
-            //}
+                cn.Close();
+            }
             return result;
         }
 

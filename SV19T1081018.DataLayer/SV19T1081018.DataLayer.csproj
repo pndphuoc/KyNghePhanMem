@@ -44,12 +44,14 @@
     <Compile Include="IAccountDAL.cs" />
     <Compile Include="ICommonDAL.cs" />
     <Compile Include="ICongDAL.cs" />
+    <Compile Include="ILichLamViecDAL.cs" />
     <Compile Include="INguoiDungDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLServer\AccountDAL.cs" />
     <Compile Include="SQLServer\CaLamViecDAL.cs" />
     <Compile Include="SQLServer\ChucVuDAL.cs" />
     <Compile Include="SQLServer\CongDAL.cs" />
+    <Compile Include="SQLServer\LichLamViecDAL.cs" />
     <Compile Include="SQLServer\NguoiDungDAL.cs" />
     <Compile Include="SQLServer\NhanVienDAL.cs" />
     <Compile Include="SQLServer\_BaseDAL.cs" />

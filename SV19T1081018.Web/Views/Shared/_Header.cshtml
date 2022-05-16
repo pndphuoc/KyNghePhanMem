@@ -29,20 +29,26 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                         
+                           
 
                             <p>
-                                @(((NguoiDung)Session["Account"]).HoTen)
+                                @(((NguoiDung)Session["Account"]).HoTen) 
                             </p>
+
+                           
                         </li>
-                        
+
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="/account/changepassword" class="btn btn-default btn-flat">Đổi mật khẩu</a>
+                                <a href="~/NhanVien/Edit/@(((NguoiDung)Session["Account"]).MaNguoiDung)">Thông Tin Cá Nhân</a>
+                            </div>
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="/account/changepassword" class="btn btn-default btn-flat" >Thay Đổi Mật Khẩu</a>
                             </div>
                             <div class="pull-right">
-                                <a href="~/account/logout" class="btn btn-default btn-flat">Đăng xuất</a>
+                                <a href="~/account/logout" class="btn btn-default btn-flat" >Đăng xuất</a>
                             </div>
                         </li>
                     </ul>

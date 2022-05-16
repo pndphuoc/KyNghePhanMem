@@ -42,9 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CaLamViec.cs" />
-    <Compile Include="Category.cs" />
     <Compile Include="ChucVu.cs" />
     <Compile Include="Cong.cs" />
+    <Compile Include="LichLamViec.cs" />
     <Compile Include="Luong.cs" />
     <Compile Include="NewFolder1\Country.cs" />
     <Compile Include="NhanVien.cs" />

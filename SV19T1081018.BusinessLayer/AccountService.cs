@@ -25,7 +25,7 @@ namespace SV19T1081018.BusinessLayer
                     break;
             }
         }
-        public static NguoiDung Login(string username, string password) 
+        public static NguoiDung Login(string username, string password)
         {
             return accountDB.Login(username, password);
         }
@@ -34,6 +34,15 @@ namespace SV19T1081018.BusinessLayer
         {
             return nguoiDungDB.Get(username);
         }
+        public static bool ChangePassword(string Username, string password)
+        {
+            return accountDB.ChangePassword(Username, password);
+        }
+        public static string getOldPassword(string Username)
+        {
+            return accountDB.getOldPassword(Username);
+        }
+
 
     }
 }

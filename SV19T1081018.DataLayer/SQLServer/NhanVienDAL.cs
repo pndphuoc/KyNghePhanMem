@@ -138,7 +138,38 @@ namespace SV19T1081018.DataLayer.SQLServer
 
             return result;
         }
+        public List<NhanVien> List()
+        {
+            List<NhanVien> data = new List<NhanVien>();
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select * from NhanVien";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
 
+                var result = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+                while (result.Read())
+                {
+                    data.Add(new NhanVien()
+                    {
+                        MaNhanVien = Convert.ToInt32(result["MaNhanVien"]),
+                        TenNhanVien = Convert.ToString(result["TenNhanVien"]),
+                        NgaySinh = Convert.ToDateTime(result["NgaySinh"]),
+                        Anh = Convert.ToString(result["Anh"]),
+                        GhiChu = Convert.ToString(result["GhiChu"]),
+                        MaChucVu = Convert.ToInt32(result["MaChucVu"]),
+                        SoDienThoai = Convert.ToString(result["SoDienThoai"]),
+                        isNam = Convert.ToBoolean(result["isNam"]),
+                        NgayVaoLam = Convert.ToDateTime(result["NgayVaoLam"])
+
+                    });
+                }
+                cn.Close();
+            }
+            return data;
+        }
         public List<NhanVien> List(int page = 1, int pageSize = 0, string searchValue = "")
         {
             List<NhanVien> data = new List<NhanVien>();

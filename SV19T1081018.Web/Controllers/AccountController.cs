@@ -37,7 +37,7 @@ namespace SV19T1081018.Web.Controllers
         public ActionResult Login(string username, string password)
         {
             var acc = BusinessLayer.AccountService.Login(username, password);
-            if (acc!=null)
+            if (acc != null)
             {
                 Session["Account"] = acc;
                 System.Web.Security.FormsAuthentication.SetAuthCookie(username, false);
@@ -64,7 +64,7 @@ namespace SV19T1081018.Web.Controllers
         /// <returns></returns>
         public ActionResult ChangePassword()
         {
-            var model = (NhanVien)Session["Account"];
+            var model = (NguoiDung)Session["Account"];
             return View(model);
         }
         /// <summary>
@@ -92,47 +92,39 @@ namespace SV19T1081018.Web.Controllers
         /// <param name="newPassword"></param>
         /// <param name="reNewPassword"></param>
         /// <returns></returns>
-        //public ActionResult SaveNewPassword(string oldPassword, string newPassword, string reNewPassword)
-        //{
-        //    //Mã hóa các mật khẩu nhập vào
-        //    oldPassword = encodedPassword(oldPassword);
-        //    newPassword = encodedPassword(newPassword);
-        //    reNewPassword = encodedPassword(reNewPassword);
+        [HttpPost]
+        public ActionResult Save(string oldPassword, string newPassword, string reNewPassword)
+        {
+            //Mã hóa các mật khẩu nhập vào
+            //oldPassword = encodedPassword(oldPassword);
+            //newPassword = encodedPassword(newPassword);
+            //reNewPassword = encodedPassword(reNewPassword);
 
-        //    //Lấy session nhân viên 
-        //    NguoiDung acc = Session["Account"] as NguoiDung;
-        //    //Nếu không có thì get từ User.Identity.Name (email của nhân viên)
-        //    if (acc==null)
-        //    {
-        //        acc = BusinessLayer.CommonDataService.GetEmployee(Convert.ToString(User.Identity.Name));
-        //        Session["Account"] = acc;
-        //    }
-        //    //Xử lý dữ liệu đầu vào
-        //    if (newPassword != reNewPassword)
-        //        ModelState.AddModelError("NewPassword", "Mật khẩu xác thực không khớp");
-           
-        //    if (oldPassword != acc.Password)
-        //        ModelState.AddModelError("Password", "Mật khẩu cũ không đúng");
-        //    else
-        //    {
-        //        if (newPassword == acc.Password)
-        //            ModelState.AddModelError("DuplicatedPassword", "Mật khẩu mới không được giống với mật khẩu cũ");
-        //    }
-        //    //Khi dữ liệu đầu vào lỗi
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View("ChangePassword");
-        //    }
-        //    //Đổi mật khẩu
-        //    bool result = BusinessLayer.AccountService.ChangePassword(User.Identity.Name, newPassword);
-        //    //Gán session bằng Employee vừa đổi mật khẩu
-        //    acc.Password = newPassword;
-        //    Session["Account"] = acc;
-
-        //    //Tạo session để nhảy alert đổi mật khẩu thành công 
-        //    Session["Notify"] = 1;
-        //    return RedirectToAction("Index", "Home");
-        //}
-
+            //Lấy session nhân viên 
+            NguoiDung acc = Session["Account"] as NguoiDung;
+            //Nếu không có thì get từ User.Identity.Name (email của nhân viên)           
+            if (acc == null)
+            {
+                acc = BusinessLayer.AccountService.GetNguoiDung(Convert.ToString(User.Identity.Name));
+                Session["Account"] = acc;
+            }
+            if (newPassword != reNewPassword)
+                ModelState.AddModelError("NewPassword", "Nhập Lại Mật Khẩu");
+            if (oldPassword != acc.Password)
+                ModelState.AddModelError("Password", "Mật khẩu cũ không đúng");
+            else
+            {
+                if (newPassword == acc.Password)
+                    ModelState.AddModelError("DuPassword", "Mật khẩu mới không được giống với mật khẩu cũ");
+            }
+            if (!ModelState.IsValid)
+            {
+                return View("ChangePassword");
+            }
+            bool result = BusinessLayer.AccountService.ChangePassword(User.Identity.Name, newPassword);
+            acc.Password = newPassword;
+            Session["Account"] = acc;
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

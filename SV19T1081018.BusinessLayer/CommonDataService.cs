@@ -17,6 +17,7 @@ namespace SV19T1081018.BusinessLayer
     {
         private static readonly ICommonDAL<NhanVien> nhanVienDB;
         private static readonly ICongDAL congDB;
+        private static readonly ILichLamViecDAL lichlamviecDB;
         private static readonly ICommonDAL<ChucVu> chucVuDB;
         private static readonly ICommonDAL<CaLamViec> caLamViecDB;
         static CommonDataService()
@@ -29,6 +30,7 @@ namespace SV19T1081018.BusinessLayer
                 case "SQLServer":
                     //employeeDB = new DataLayer.SQLServer.EmployeeDAL(connectionString);
                     nhanVienDB = new DataLayer.SQLServer.NhanVienDAL(connectionString);
+                    lichlamviecDB = new DataLayer.SQLServer.LichLamViecDAL(connectionString);
                     congDB = new DataLayer.SQLServer.CongDAL(connectionString);
                     chucVuDB = new DataLayer.SQLServer.ChucVuDAL(connectionString);
                     caLamViecDB = new DataLayer.SQLServer.CaLamViecDAL(connectionString);
@@ -41,6 +43,11 @@ namespace SV19T1081018.BusinessLayer
             rowCount = nhanVienDB.Count(searchValue);
             return nhanVienDB.List(page, pageSize, searchValue);
         }
+        public static List<NhanVien> ListOfNhanVien()
+        {
+            return nhanVienDB.List();
+        }
+
         public static NhanVien GetNhanVien(int MaNhanVien)
         {
             return nhanVienDB.Get(MaNhanVien);
@@ -112,6 +119,25 @@ namespace SV19T1081018.BusinessLayer
         public static List<CaLamViec> ListCaLamViec()
         {
             return caLamViecDB.List();
+        }
+        #endregion
+
+        #region Lịch làm việc
+        public static List<LichLamViec> GetList(int MaCaLamViec, int MaThu)
+        {
+            return lichlamviecDB.List(MaCaLamViec, MaThu, "").ToList();
+        }
+        public static int CheckNV(int MaThu, int MaCaLamViec, int MaNhanVien)
+        {
+            return lichlamviecDB.Check(MaThu, MaCaLamViec, MaNhanVien);
+        }
+        public static bool AddLichNV(LichLamViec data)
+        {
+            return lichlamviecDB.Add(data);
+        }
+        public static bool DeleteNV(LichLamViec data)
+        {
+            return lichlamviecDB.Delete(data);
         }
         #endregion
     }

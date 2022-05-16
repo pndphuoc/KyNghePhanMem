@@ -5794,6 +5794,7 @@
     <Content Include="Views\Timekeeping\Edit.cshtml" />
     <Content Include="Views\Timekeeping\EditCong.cshtml" />
     <Content Include="Views\Timekeeping\CreateCong.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppCodes\" />
