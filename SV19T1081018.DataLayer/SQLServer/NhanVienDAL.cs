@@ -16,7 +16,27 @@ namespace SV19T1081018.DataLayer.SQLServer
 
         public int Add(NhanVien data)
         {
-            throw new NotImplementedException();
+            int result = 0;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"insert into NhanVien(TenNhanVien,NgaySinh,Anh,GhiChu,SoDienThoai,isNam,NgayVaoLam,MaChucVu) values
+                    (@tennhanvien, @ngaysinh, @anh,@ghichu, @sodienthoai,@isnam, @ngayvaolam,@machucvu) 
+                    select @@identity;";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+                cmd.Parameters.AddWithValue("@tennhanvien", data.TenNhanVien);
+                cmd.Parameters.AddWithValue("@ngaysinh", data.NgaySinh);
+                cmd.Parameters.AddWithValue("@anh", data.Anh);
+                cmd.Parameters.AddWithValue("@ghichu", data.GhiChu);
+                cmd.Parameters.AddWithValue("@sodienthoai", data.SoDienThoai);
+                cmd.Parameters.AddWithValue("@ngayvaolam", data.NgayVaoLam);
+                cmd.Parameters.AddWithValue("@machucvu", data.MaChucVu);
+                cmd.Parameters.AddWithValue("@isnam", data.isNam);
+                result = Convert.ToInt32(cmd.ExecuteScalar());
+                cn.Close();
+            }
+            return result;
         }
 
         public int Count(string searchValue = "")
@@ -47,7 +67,20 @@ namespace SV19T1081018.DataLayer.SQLServer
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "delete from NhanVien where MaNhanVien = @manhanvien";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+                cmd.Parameters.AddWithValue("manhanvien", id);
+                result = cmd.ExecuteNonQuery() > 0;
+
+                cn.Close();
+            }
+            return result;
         }
 
         public NhanVien Get(int id)
@@ -90,7 +123,20 @@ namespace SV19T1081018.DataLayer.SQLServer
 
         public bool InUsed(int id)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            using (SqlConnection cn = OpenConnection())
+            {
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select case 
+                                    when (exists(select * from Cong where MaNhanVien= @manhanvien)) or (exists (select * from Luong where MaNhanVien=@manhanvien)) then 1 else 0 end";
+
+                cmd.Connection = cn;
+                cmd.Parameters.AddWithValue("@manhanvien", id);
+                result = Convert.ToBoolean(cmd.ExecuteScalar());
+            }
+
+            return result;
         }
 
         public List<NhanVien> List(int page = 1, int pageSize = 0, string searchValue = "")
@@ -146,7 +192,34 @@ namespace SV19T1081018.DataLayer.SQLServer
 
         public bool Update(NhanVien data)
         {
-            throw new NotImplementedException();
+            bool result = false;
+
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"update NhanVien
+                    set TenNhanVien = @tennhanvien, NgaySinh = @ngaysinh, Anh = @anh,
+                    GhiChu = @ghichu, MaChucVu = @machucvu, SoDienThoai = @sodienthoai,isNam=@isnam,NgayvaoLam=@ngayvaolam
+                    where MaNhanVien = @manhanvien";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+                cmd.Parameters.AddWithValue("@manhanvien", data.MaNhanVien);
+                cmd.Parameters.AddWithValue("@tennhanvien", data.TenNhanVien);
+                cmd.Parameters.AddWithValue("@ngaysinh", data.NgaySinh);
+                cmd.Parameters.AddWithValue("@anh", data.Anh);
+                cmd.Parameters.AddWithValue("@ghichu", data.GhiChu);
+                cmd.Parameters.AddWithValue("@machucvu", data.MaChucVu);
+                cmd.Parameters.AddWithValue("@sodienthoai", data.SoDienThoai);
+                cmd.Parameters.AddWithValue("@isNam", data.isNam);
+
+                cmd.Parameters.AddWithValue("@ngayvaolam", data.NgayVaoLam);
+
+                result = cmd.ExecuteNonQuery() > 0;
+
+                cn.Close();
+            }
+
+            return result;
         }
     }
 }

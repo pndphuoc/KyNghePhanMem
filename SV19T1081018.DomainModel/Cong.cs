@@ -11,8 +11,9 @@ namespace SV19T1081018.DomainModel
         public int MaCong { get; set; }
         public int MaNhanVien { get; set; }
         public int MaCaLamViec { get; set; }
-        public DateTime ThoiGianVaoCa { get; set; }
-        public DateTime ThoiGianKetThuc { get; set; }
+        public string ThoiGianVaoCa { get; set; }
+        public string ThoiGianKetThuc { get; set; }
         public bool status { get; set; }
+        public DateTime Ngay { get; set; }
     }
 }

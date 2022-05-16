@@ -1,6 +1,5 @@
-﻿
-@{
-    ViewBag.Title = "Chỉnh sửa công tháng " + ViewData["Thang"] + " năm " + ViewData["Nam"];
+﻿@{
+    ViewBag.Title = "Chỉnh sửa công tháng " + ViewData["Thang"] + " năm " + ViewData["Nam"] + " | Nhân viên " + SV19T1081018.BusinessLayer.CommonDataService.GetNhanVien(Convert.ToInt32(ViewData["MaNhanVien"])).TenNhanVien;
     int days = DateTime.DaysInMonth(Convert.ToInt32(ViewData["Nam"]), Convert.ToInt32(ViewData["Thang"]));
 }
 
@@ -145,36 +144,39 @@
 </style>
 <!------ Include the above in your HEAD tag ---------->
 
-<h1 class="title text-center"> Tháng @ViewData["Thang"]/@ViewData["Nam"] </h1>
+<div class="row">
+
+    <h1 class="title text-center"> Tháng @ViewData["Thang"]/@ViewData["Nam"] </h1>
+</div>
 <div class="calendar" data-toggle="calendar">
     <div class="row">
-        <div class="col-xs-12 calendar-day calendar-no-current-month">
-            <time datetime="2014-06-29">29</time>
-        </div>
-        <div class="col-xs-12 calendar-day calendar-no-current-month">
-            <time datetime="2014-06-30">30</time>
-        </div>
+        @*<div class="col-xs-12 calendar-day calendar-no-current-month">
+                <time datetime="2014-06-29">29</time>
+            </div>
+            <div class="col-xs-12 calendar-day calendar-no-current-month">
+                <time datetime="2014-06-30">30</time>
+            </div>*@
         @for (int i = 1; i <= days; i++)
         {
-            <div class="col-xs-12 calendar-day" style="position:relative">
-                <time datetime="@ViewData["Nam"]-@ViewData["Thang"]-@i">@i</time>
+            <div class="col-xs-12 calendar-day" style="position:relative; border-color: black">
+                <time datetime="@ViewData["Nam"]-@ViewData["Thang"]-@i" style="font-size: 16px">@i</time>
                 <div class="events">
                     @foreach (var item in SV19T1081018.BusinessLayer.CommonDataService.GetCongTheoNgay(Convert.ToInt32(ViewData["MaNhanVien"]),
-                        i, Convert.ToInt32(ViewData["Thang"]), Convert.ToInt32(ViewData["Nam"])))
+            i, Convert.ToInt32(ViewData["Thang"]), Convert.ToInt32(ViewData["Nam"])))
                     {
                         if (item.status == true)
                         {
                             <div>
                                 <button class="datetime" style="background-color: #77DF79; border-radius: 5px; margin-bottom: 5px; border: none; font-size: 13px">
                                     <a href="~/timekeeping/editcong/@ViewData["MaNhanVien"]/@item.MaCong" style="color: black;  text-decoration: none;">
-                                        <span class="glyphicon glyphicon-time"></span> @item.ThoiGianVaoCa.ToShortTimeString() -
-                                        @if (DateTime.Compare(item.ThoiGianVaoCa, item.ThoiGianKetThuc) == 0)
+                                        <span class="glyphicon glyphicon-time"></span> @item.ThoiGianVaoCa -
+                                        @if (item.ThoiGianVaoCa == item.ThoiGianKetThuc)
                                         {
                                             <span>?</span>
                                         }
                                         else
                                         {
-                                            @item.ThoiGianKetThuc.ToShortTimeString()
+                                            @item.ThoiGianKetThuc
                                         }
                                     </a>
                                 </button>
@@ -185,13 +187,13 @@
                             <div>
                                 <button type="submit" class="datetime" style="background-color: #ff6961; border-radius: 5px; margin-bottom: 5px; border: none; font-size: 13px">
                                     <a href="~/timekeeping/editcong/@ViewData["MaNhanVien"]/@item.MaCong" style="color: black;  text-decoration: none;">
-                                        <span class="glyphicon glyphicon-time"></span> @item.ThoiGianVaoCa.ToShortTimeString() - @if (DateTime.Compare(item.ThoiGianVaoCa, item.ThoiGianKetThuc) == 0)
+                                        <span class="glyphicon glyphicon-time"></span> @item.ThoiGianVaoCa - @if (item.ThoiGianVaoCa == item.ThoiGianKetThuc)
                                         {
                                             <span>?</span>
                                         }
                                         else
                                         {
-                                            @item.ThoiGianKetThuc.ToShortTimeString()
+                                            @item.ThoiGianKetThuc
                                         }
                                     </a>
                                 </button>
@@ -199,7 +201,13 @@
                         }
                     }
                 </div>
-                    <a style="position:absolute; bottom: 0" href="~/timekeeping/createcong"><i style="width: 100%" class="fa fa-plus-circle fa-4" aria-hidden="true"></i></a>
+                @{
+                    DateTime date = new DateTime(Convert.ToInt32(ViewData["Nam"]), Convert.ToInt32(ViewData["Thang"]), i);
+                    DateTime Ngay = date.Date;
+                }
+
+                <a style="position:absolute; bottom: 0"
+                   href="~/timekeeping/createcong/@ViewData["MaNhanVien"]/@ViewData["Nam"]/@ViewData["Thang"]/@i"><i style="width: 100%" class="fa fa-plus-circle fa-4" aria-hidden="true"></i></a>
             </div>
         }
     </div>

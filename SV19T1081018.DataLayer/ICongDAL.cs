@@ -12,11 +12,10 @@ namespace SV19T1081018.DataLayer
         Cong GetCong(int MaCong);
         List<Cong> GetCongTheoNgay(int MaNhanVien, int Ngay, int Thang, int Nam);
 
-
-        Cong GetCongTheoNhanVien(int MaNhanVien);
-        Cong GetCongTungThangCuaNhanVien(int MaNhanVien, int Thang);
         int CountCongTungThangCuaNhanVien(int MaNhanVien, int Thang, int Nam);
 
-        bool UpdateCong(Cong cong);
+        bool Update(Cong cong);
+        int Add(Cong data);
+        bool Delete(int MaCong);
     }
 }

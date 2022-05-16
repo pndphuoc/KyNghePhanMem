@@ -3,6 +3,7 @@ using SV19T1081018.DomainModel;
 using SV19T1081018.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -47,9 +48,17 @@ namespace SV19T1081018.Web.Controllers.NewFolder1
             };
 
             Session["NHANVIEN_CONG_SEARCH"] = input;
-
             return View(model);
         }
+        [Route("delete/{MaCong}/{MaNhanVien}/{Thang}/{Nam}")]
+        public ActionResult Delete(int MaCong, int MaNhanVien, int Thang, int Nam)
+        {
+
+            CommonDataService.DeleteCong(MaCong);
+
+            return RedirectToAction($"Edit/{MaNhanVien}/{Thang}/{Nam}");
+        }
+
         [Route("edit/{MaNhanVien}/{Thang}/{Nam}")]
         public ActionResult Edit(int MaNhanVien, int Thang, int Nam)
         {
@@ -61,14 +70,15 @@ namespace SV19T1081018.Web.Controllers.NewFolder1
             ViewData["MaNhanVien"] = MaNhanVien;
             return View();
         }
-        [Route("createcong/{MaNhanVien}/{Ngay}/{Thang}/{Nam}")]
-        public ActionResult CreateCong(int MaNhanVien, int Ngay, int Thang, int Nam)
+        [Route("createcong/{MaNhanVien}/{Nam}/{Thang}/{Ngay}")]
+        public ActionResult CreateCong(int MaNhanVien, int Nam, int Thang, int Ngay)
         {
+            DateTime date = new DateTime(Nam, Thang, Ngay);
             Cong model = new Cong()
             {
                 MaCong = 0,
-                MaNhanVien = MaNhanVien
-
+                MaNhanVien = MaNhanVien,
+                Ngay = date
             };
 
             ViewBag.Title = "Thêm công";
@@ -77,23 +87,25 @@ namespace SV19T1081018.Web.Controllers.NewFolder1
 
 
         [Route("editcong/{MaNhanVien}/{MaCong}")]
-        public ActionResult EditCong (int MaNhanVien, int MaCong)
+        public ActionResult EditCong(int MaNhanVien, int MaCong)
         {
             Cong model = new Cong();
             model = BusinessLayer.CommonDataService.GetCong(MaCong);
             return View("CreateCong", model);
         }
-
+        [HttpPost]
         public ActionResult Save(Cong model)
         {
-            if (!ModelState.IsValid)
-            {
-                ViewBag.Title = model.MaCong == 0 ? "Bổ sung công làm việc" : "Cập nhật công của nhân viên";
-                return View("Create", model);
+            //if (!ModelState.IsValid)
+            //{
+            //    ViewBag.Title = model.MaCong == 0 ? "Bổ sung công làm việc" : "Cập nhật công của nhân viên";
+            //    return View("Create", model);
 
-            }
+            //}
             if (model.MaCong > 0)
                 CommonDataService.UpdateCong(model);
+            else
+                CommonDataService.AddCong(model);
             //else
             //{
             //    PaginationSearchInput input = new PaginationSearchInput();
@@ -108,7 +120,7 @@ namespace SV19T1081018.Web.Controllers.NewFolder1
             //    CommonDataService.AddCustomer(model);
             //    Session["CUSTOMER_SEARCH"] = input;
             //}
-            return RedirectToAction($"Edit/{model.MaNhanVien}/{model.ThoiGianVaoCa.Month}/{model.ThoiGianVaoCa.Year}");
+            return RedirectToAction($"Edit/{model.MaNhanVien}/{model.Ngay.Month}/{model.Ngay.Year}");
         }
     }
 }

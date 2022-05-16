@@ -14,6 +14,31 @@ namespace SV19T1081018.DataLayer.SQLServer
         {
         }
 
+        public int Add(Cong data)
+        {
+            int result = 0;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"insert into Cong(MaNhanVien, MaCaLamViec, ThoiGianVaoCa, ThoiGianKetThuc, status, Ngay) 
+                                    values (@MaNhanVien, @MaCaLamViec, @ThoiGianVaoCa, @ThoiGianKetThuc, @status, @Ngay) select @@identity;";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+                cmd.Parameters.AddWithValue("MaNhanVien", data.MaNhanVien);
+                cmd.Parameters.AddWithValue("MaCaLamViec", data.MaCaLamViec);
+                cmd.Parameters.AddWithValue("ThoiGianVaoCa", data.ThoiGianVaoCa);
+                cmd.Parameters.AddWithValue("ThoiGianKetThuc", data.ThoiGianKetThuc);
+                cmd.Parameters.AddWithValue("status", data.status);
+                cmd.Parameters.AddWithValue("Ngay", data.Ngay);
+
+                result = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cn.Close();
+            }
+            return result;
+        }
+
         public int CountCongTungThangCuaNhanVien(int MaNhanVien, int Thang, int Nam)
         {
             using (SqlConnection cn = OpenConnection())
@@ -30,6 +55,24 @@ namespace SV19T1081018.DataLayer.SQLServer
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
                 return count;
             }
+        }
+
+        public bool Delete(int MaCong)
+        {
+            bool result = false;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "delete from Cong where MaCong = @MaCong";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+                cmd.Parameters.AddWithValue("MaCong", MaCong);
+                result = cmd.ExecuteNonQuery() > 0;
+
+                cn.Close();
+            }
+            return result;
         }
 
         public Cong GetCong(int MaCong)
@@ -53,9 +96,10 @@ namespace SV19T1081018.DataLayer.SQLServer
                         MaNhanVien = Convert.ToInt32(dbReader["MaNhanVien"]),
                         MaCaLamViec = Convert.ToInt32(dbReader["MaCaLamViec"]),
                         MaCong = Convert.ToInt32(dbReader["MaCong"]),
-                        ThoiGianVaoCa = Convert.ToDateTime(dbReader["ThoiGianVaoCa"]),
-                        ThoiGianKetThuc = dbReader.IsDBNull(dbReader.GetOrdinal("ThoiGianKetThuc")) == true ? Convert.ToDateTime(dbReader["ThoiGianVaoCa"]) : Convert.ToDateTime(dbReader["ThoiGianKetThuc"]),
-                        status = Convert.ToBoolean(dbReader["status"])
+                        ThoiGianVaoCa = Convert.ToString(dbReader["ThoiGianVaoCa"]),
+                        ThoiGianKetThuc = dbReader.IsDBNull(dbReader.GetOrdinal("ThoiGianKetThuc")) == true ? Convert.ToString(dbReader["ThoiGianVaoCa"]) : Convert.ToString(dbReader["ThoiGianKetThuc"]),
+                        status = Convert.ToBoolean(dbReader["status"]),
+                        Ngay = Convert.ToDateTime(dbReader["Ngay"])
                     };
                 }
                 cn.Close();
@@ -63,10 +107,6 @@ namespace SV19T1081018.DataLayer.SQLServer
             return c;
         }
 
-        public Cong GetCongTheoNgay(DateTime Ngay)
-        {
-            throw new NotImplementedException();
-        }
 
         public List<Cong> GetCongTheoNgay(int MaNhanVien, int Ngay, int Thang, int Nam)
         {
@@ -91,26 +131,19 @@ namespace SV19T1081018.DataLayer.SQLServer
                         MaNhanVien = Convert.ToInt32(result["MaNhanVien"]),
                         MaCaLamViec = Convert.ToInt32(result["MaCaLamViec"]),
                         MaCong = Convert.ToInt32(result["MaCong"]),
-                        ThoiGianVaoCa = Convert.ToDateTime(result["ThoiGianVaoCa"]),
-                        ThoiGianKetThuc = result.IsDBNull(result.GetOrdinal("ThoiGianKetThuc")) == true ? Convert.ToDateTime(result["ThoiGianVaoCa"]): Convert.ToDateTime(result["ThoiGianKetThuc"]),
-                        status = Convert.ToBoolean(result["status"])
+                        ThoiGianVaoCa = Convert.ToString(result["ThoiGianVaoCa"]),
+                        ThoiGianKetThuc = result.IsDBNull(result.GetOrdinal("ThoiGianKetThuc")) == true ? Convert.ToString(result["ThoiGianVaoCa"]): Convert.ToString(result["ThoiGianKetThuc"]),
+                        status = Convert.ToBoolean(result["status"]),
+                        Ngay = Convert.ToDateTime(result["Ngay"])
+
                     });
                 }
             }
             return data;
         }
 
-        public Cong GetCongTheoNhanVien(int MaNhanVien)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Cong GetCongTungThangCuaNhanVien(int MaNhanVien, int Thang)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdateCong(Cong cong)
+        public bool Update(Cong cong)
         {
             bool result = false;
 

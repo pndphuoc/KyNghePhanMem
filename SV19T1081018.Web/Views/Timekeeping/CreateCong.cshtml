@@ -8,24 +8,38 @@
         <form class="form-horizontal" action="~/timekeeping/save" method="post">
             @Html.HiddenFor(m => m.MaNhanVien)
             @Html.HiddenFor(m => m.MaCong)
+            <input type="datetime" name="Ngay" value="@Model.Ngay" hidden />
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email">Tên nhân viên:</label>
                 <div class="col-sm-10">
-                        <p class="form-control-static">@SV19T1081018.BusinessLayer.CommonDataService.GetNhanVien(Model.MaNhanVien).TenNhanVien</p>                   
+                    <p class="form-control-static">@SV19T1081018.BusinessLayer.CommonDataService.GetNhanVien(Model.MaNhanVien).TenNhanVien</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Ngày:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.Ngay.ToString("dd/MM/yyyy")</p>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email">Ca:</label>
                 <div class="col-sm-10">
-                    <p class="form-control-static">@SV19T1081018.BusinessLayer.CommonDataService.GetCaLamViec(Model.MaCaLamViec).TenCaLamViec</p>
+                    <select class="form-control" name="MaCaLamViec" style="border-radius: 10px;">
+                        @foreach (var item in SV19T1081018.BusinessLayer.CommonDataService.ListCaLamViec())
+                        {
+                            <option value="@item.MaCaLamViec">@item.TenCaLamViec</option>
+
+                        }
+                    </select>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email">Thời gian vào ca:</label>
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(m => m.ThoiGianVaoCa, new { @class = "form-control", @style = "border-radius: 10px" })
+                    @Html.TextBoxFor(m => m.ThoiGianVaoCa, new { @class = "form-control", @style = "border-radius: 10px", @autofocus="" })
                     @Html.ValidationMessageFor(m => m.ThoiGianVaoCa, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -41,7 +55,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email"></label>
                 <div class="col-sm-10">
-                    @Html.CheckBoxFor(m => m.status) Công đúng?
+                    @Html.CheckBoxFor(m => m.status, new {@checked = ""}) Công đúng?
                 </div>
             </div>
 
@@ -51,20 +65,17 @@
                         <i class="fa fa-save"></i>
                         Lưu dữ liệu
                     </button>
-                    @if (Model != null)
+                    @if (Model.MaCong != 0)
                     {
-                        <a class="btn btn-default" href="~/timekeeping/edit/@Model.MaNhanVien/@Model.ThoiGianVaoCa.Month/@Model.ThoiGianVaoCa.Year" style="border-radius: 10px;">
-                            <i class="fa fa-backward"></i>
-                            Quay lại
+                        <a class="btn btn-danger" onclick="return confirm('Xác nhận xóa công này?')" href="~/timekeeping/delete/@Model.MaCong/@Model.MaNhanVien/@Model.Ngay.Month/@Model.Ngay.Year" style="border-radius: 10px;">
+                            <i class="fa fa-trash"></i>
+                            Xóa công
                         </a>
                     }
-                    else
-                    {
-                        <a class="btn btn-default" href="~/timekeeping/edit/@Model.MaNhanVien" style="border-radius: 10px;">
-                            <i class="fa fa-backward"></i>
-                            Quay lại
-                        </a>
-                    }
+                    <a class="btn btn-default" href="~/timekeeping/edit/@Model.MaNhanVien/@Model.Ngay.Month/@Model.Ngay.Year" style="border-radius: 10px;">
+                        <i class="fa fa-backward"></i>
+                        Quay lại
+                    </a>
                 </div>
             </div>
             @*<div class="form-group">

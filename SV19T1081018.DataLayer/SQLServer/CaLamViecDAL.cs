@@ -69,7 +69,33 @@ namespace SV19T1081018.DataLayer.SQLServer
 
         public List<CaLamViec> List(int page = 1, int pageSize = 0, string searchValue = "")
         {
-            throw new NotImplementedException();
+            List<CaLamViec> data = new List<CaLamViec>();
+
+            string searchValueEmail = searchValue;
+            if (searchValue != "")
+                searchValue = "%" + searchValue + "%";
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select * from CaLamViec";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+                var result = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (result.Read())
+                {
+                    data.Add(new CaLamViec()
+                    {
+                        MaCaLamViec = Convert.ToInt32(result["MaCaLamViec"]),
+                        TenCaLamViec = Convert.ToString(result["TenCaLamViec"]),
+                        ThoiGianBatDau = Convert.ToString(result["ThoiGianBatDau"]),
+                        ThoiGianKetThuc = Convert.ToString(result["ThoiGianKetThuc"])
+                    });
+                }
+
+                cn.Close();
+            }
+            return data;
         }
 
         public bool Update(CaLamViec data)

@@ -45,12 +45,34 @@ namespace SV19T1081018.BusinessLayer
         {
             return nhanVienDB.Get(MaNhanVien);
         }
+        public static bool XoaNhanVien(int customerID)
+        {
+            return nhanVienDB.Delete(customerID);
+        }
+        public static int ThemNhanVien(NhanVien data)
+        {
+            return nhanVienDB.Add(data);
+        }
+        public static bool CapNhatNhanVien(NhanVien data)
+        {
+            return nhanVienDB.Update(data);
+        }
+        public static Boolean InusedNhanVien(int id)
+        {
+            return nhanVienDB.InUsed(id);
+
+        }
         #endregion
 
         #region Chức vụ
         public static ChucVu GetChucVu(int MaChucVu)
         {
             return chucVuDB.Get(MaChucVu);
+        }
+        public static List<ChucVu> ListOfChucVu()
+        {
+            return chucVuDB.List().ToList();
+
         }
         #endregion
 
@@ -69,7 +91,15 @@ namespace SV19T1081018.BusinessLayer
         }
         public static bool UpdateCong(Cong cong)
         {
-            return congDB.UpdateCong(cong);
+            return congDB.Update(cong);
+        }
+        public static int AddCong(Cong data)
+        {
+            return congDB.Add(data);
+        }
+        public static bool DeleteCong(int MaCong)
+        {
+            return congDB.Delete(MaCong);
         }
         #endregion
 
@@ -77,6 +107,11 @@ namespace SV19T1081018.BusinessLayer
         public static CaLamViec GetCaLamViec(int MaCaLamViec)
         {
             return caLamViecDB.Get(MaCaLamViec);
+        }
+
+        public static List<CaLamViec> ListCaLamViec()
+        {
+            return caLamViecDB.List();
         }
         #endregion
     }

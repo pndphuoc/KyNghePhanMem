@@ -63,7 +63,33 @@ namespace SV19T1081018.DataLayer.SQLServer
 
         public List<ChucVu> List(int page = 1, int pageSize = 0, string searchValue = "")
         {
-            throw new NotImplementedException();
+            List<ChucVu> data = new List<ChucVu>();
+
+
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select *
+                                  from ChucVu";
+
+
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+                var result = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (result.Read())
+                {
+                    data.Add(new ChucVu()
+                    {
+                        MaChucVu = Convert.ToInt32(result["MaChucVu"]),
+                        TenChucVu = Convert.ToString(result["TenChucVu"]),
+                        TienLuong = Convert.ToInt32(result["TienLuong"])
+                    });
+                }
+
+                cn.Close();
+            }
+            return data;
         }
 
         public bool Update(ChucVu data)
