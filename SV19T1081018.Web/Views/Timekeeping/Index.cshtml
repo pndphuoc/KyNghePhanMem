@@ -2,56 +2,55 @@
 @{
     ViewBag.Title = "Bảng chấm công";
 }
-<form action="~/timekeeping/search" id="searchInput">
-    @Html.HiddenFor(m => m.PageSize)
-    <div class="row">
-        <div class="col-sm-3">
-            <select class="form-control" name="Thang" style="border-radius: 10px;
+<div class="box box-primary">
+
+    <div class="box-body">
+        <form action="~/timekeeping/search" id="searchInput">
+            @Html.HiddenFor(m => m.PageSize)
+            <div class="row">
+                <div class="col-sm-3">
+                    <select class="form-control" name="Thang" style="border-radius: 10px;
                             border-radius: 10px;
                             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                >
-                <option value="0">-- Tháng --</option>
-                @for(int i = 1; i<=12; i++)
-                {
-                    if (DateTime.Now.Month == i)
-                    {
-                        <option selected value="@i">@i</option>
-                    }
-                    else
-                    {
-                        <option value="@i">@i</option>
-                    }
-                }
-            </select>
-        </div>
-        <div class="col-sm-3">
-            <input class="form-control" type="number" name="Nam" value="@DateTime.Now.Year" style="border-radius: 10px;
+                        >
+                        <option value="0">-- Tháng --</option>
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            if (DateTime.Now.Month == i)
+                            {
+                                <option selected value="@i">@i</option>
+                            }
+                            else
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <input class="form-control" type="number" name="Nam" value="@DateTime.Now.Year" style="border-radius: 10px;
                             border-radius: 10px;
                             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
-        </div>
-        <div class="col-sm-6 input-group">
-            <input type="text" name="searchValue"
-                   class="form-control" value="@Model.SearchValue" autofocus style="border-top-left-radius: 10px;
+                </div>
+                <div class="col-sm-5 input-group">
+                    <input type="text" name="searchValue"
+                           class="form-control" value="@Model.SearchValue" autofocus style="border-top-left-radius: 10px;
                             border-bottom-left-radius: 10px;
                             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
-                   placeholder="Nhập tên nhân viên cần tìm">
-            <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat btn-info" style="border-top-right-radius: 10px;
+                           placeholder="Nhập tên nhân viên cần tìm">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat btn-info" style="border-top-right-radius: 10px;
                             border-bottom-right-radius: 10px;
                             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                    <i class="fa fa-search"></i>
-                </button>
-                <a href="~/product/create"
-                   class="btn btn-flat btn-primary"
-                   style="margin-left:5px; border-radius: 10px;
-                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                    <i class="fa fa-plus"></i> Bổ sung
-                </a>
-            </span>
-        </div>
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </form>
+        <div id="searchResult"></div>
     </div>
-</form>
-<div id="searchResult"></div>
+</div>
 
 @section scripts {
     <script>

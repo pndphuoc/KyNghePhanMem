@@ -20,6 +20,7 @@ namespace SV19T1081018.BusinessLayer
         private static readonly ILichLamViecDAL lichlamviecDB;
         private static readonly ICommonDAL<ChucVu> chucVuDB;
         private static readonly ICommonDAL<CaLamViec> caLamViecDB;
+        private static readonly INguoiDungDAL nguoiDungDB;
         static CommonDataService()
         {
             string provider = ConfigurationManager.ConnectionStrings["DB"].ProviderName;
@@ -34,6 +35,7 @@ namespace SV19T1081018.BusinessLayer
                     congDB = new DataLayer.SQLServer.CongDAL(connectionString);
                     chucVuDB = new DataLayer.SQLServer.ChucVuDAL(connectionString);
                     caLamViecDB = new DataLayer.SQLServer.CaLamViecDAL(connectionString);
+                    nguoiDungDB = new DataLayer.SQLServer.NguoiDungDAL(connectionString);
                     break;
             }
         }
@@ -78,8 +80,60 @@ namespace SV19T1081018.BusinessLayer
         }
         public static List<ChucVu> ListOfChucVu()
         {
-            return chucVuDB.List().ToList();
+            return chucVuDB.List();
 
+        }
+        /// <summary>
+        /// lay danh sach cac chuc vu. tim kiem chuc vu duoi dang phan trang
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="searchValue"></param>
+        /// <param name="rowCount"></param>
+        /// <returns></returns>
+        public static List<ChucVu> ListOfChucVu(int page, int pageSize, string searchValue, out int rowCount)
+        {
+            rowCount = chucVuDB.Count(searchValue);
+            return chucVuDB.List(page, pageSize, searchValue);
+        }
+        /// <summary>
+        /// Xoa chuc vu
+        /// </summary>
+        /// <param name="machucvu"></param>
+        /// <returns></returns>
+        public static bool DeleteChucVu(int machucvu)
+        {
+            if (chucVuDB.InUsed(machucvu))
+            {
+                return false;
+            }
+            return chucVuDB.Delete(machucvu);
+        }
+
+
+        /// <summary>
+        /// Them chuc vu
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static int AddChucVu(ChucVu data)
+        {
+            return chucVuDB.Add(data);
+        }
+
+
+        /// <summary>
+        /// kiem tra chuc vu co lien quan den truong du lieu khac hay khong
+        /// </summary>
+        /// <param name="machucvu"></param>
+        /// <returns></returns>
+        public static bool InUsed(int machucvu)
+        {
+            return chucVuDB.InUsed(machucvu);
+        }
+        public static bool UpdateChucVu(ChucVu data)
+        {
+            return chucVuDB.Update(data);
         }
         #endregion
 
@@ -120,6 +174,58 @@ namespace SV19T1081018.BusinessLayer
         {
             return caLamViecDB.List();
         }
+        public static List<CaLamViec> ListOfCaLamViec(int page, int pageSize, string searchValue, out int rowCount)
+        {
+            rowCount = caLamViecDB.Count(searchValue);
+            return caLamViecDB.List(page, pageSize, searchValue).ToList();
+        }
+        /// <summary>
+        /// Xoa ca lam viec
+        /// </summary>
+        /// <param name="machucvu"></param>
+        /// <returns></returns>
+        public static bool DeleteCaLamViec(int macalamviec)
+        {
+            if (caLamViecDB.InUsed(macalamviec))
+            {
+                return false;
+            }
+            return caLamViecDB.Delete(macalamviec);
+        }
+
+
+        /// <summary>
+        /// Them ca lam viec
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static int AddCaLamViec(CaLamViec data)
+        {
+            return caLamViecDB.Add(data);
+        }
+
+
+        /// <summary>
+        /// Kiem tra ca lam viec co lien quan den truong du lieu khac hay khong
+        /// </summary>
+        /// <param name="macalamviec"></param>
+        /// <returns></returns>
+        public static bool InUsedCaLamViec(int macalamviec)
+        {
+            return caLamViecDB.InUsed(macalamviec);
+        }
+
+
+        /// <summary>
+        /// cap nhap thong tin ca lam viec
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static bool UpdateCaLamViec(CaLamViec data)
+        {
+            return caLamViecDB.Update(data);
+        }
+
         #endregion
 
         #region Lịch làm việc
@@ -138,6 +244,13 @@ namespace SV19T1081018.BusinessLayer
         public static bool DeleteNV(LichLamViec data)
         {
             return lichlamviecDB.Delete(data);
+        }
+        #endregion
+
+        #region
+        public static NguoiDung GetNguoiDung(int MaNguoiDung)
+        {
+            return nguoiDungDB.Get(MaNguoiDung);
         }
         #endregion
     }

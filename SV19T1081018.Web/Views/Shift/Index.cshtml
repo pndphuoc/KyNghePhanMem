@@ -1,0 +1,49 @@
+﻿@model SV19T1081018.Web.Models.PaginationSearchInput
+@{
+    ViewBag.Title = "Ca Lam Viec";
+}
+<div class="box box-">
+    <div class="box-header with-border">
+
+    </div>
+    <div class="box-body">
+        <form id="searchInput" action="~/shift/search">
+            @Html.HiddenFor(m => m.PageSize)
+            <div class="input-group">
+                <input type="text" name="searchValue" class="form-control" placeholder="Tên ca làm việc ..." value="@Model.SearchValue">
+                <span class="input-group-btn">
+                    <button type="submit" id="search-btn" class="btn btn-flat btn-info">
+                        <i class="fa fa-search"></i>
+                    </button>
+
+                    <a href="~/shift/create" class="btn btn-flat btn-primary"
+                       style="margin-left: 5px">
+                        <i class="fa fa-plus"></i> Thêm ca làm việc
+                    </a>
+                </span>
+            </div>
+        </form>
+        <div id="searchResult">
+
+        </div>
+
+    </div>
+    <!-- /.box-body -->
+    <!-- /.box-footer-->
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            doSearch(@Model.Page);
+            $("#searchInput").submit(function (e) {
+                e.preventDefault();
+                doSearch(1);
+                return false;
+            });
+        });
+
+    </script>
+
+}
+

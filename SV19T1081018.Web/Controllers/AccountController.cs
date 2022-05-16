@@ -57,6 +57,15 @@ namespace SV19T1081018.Web.Controllers
             Session.Clear();
             return RedirectToAction("Login");
         }
+        [Route("Edit/{MaNhanVien}")]
+        public ActionResult Edit(int MaNhanVien)
+        {
+            NguoiDung model = SV19T1081018.BusinessLayer.CommonDataService.GetNguoiDung(MaNhanVien);
+            if (model == null)
+                return RedirectToAction("Index");
+            ViewBag.Title = "Thông Tin Cá Nhân";
+            return View("Create", model);
+        }
 
         /// <summary>
         /// 

@@ -161,56 +161,56 @@
 
                                 <div class="box-body">
 
-                                    <form class="form-horizontal" action="~/calendar/save" method="post">
-                                        <table class="table table-bordered table-striped table-hover">
-                                            <thead>
-                                                <tr class="bg-primary">
-                                                    <th>Ảnh</th>
-                                                    <th>TenNhanVien</th>
-                                                    <th>Chức vụ</th>
-                                                    <th>Số điện thoại</th>
-                                                    <th></th>
+                                    <table class="table table-bordered table-striped table-hover">
+                                        <thead>
+                                            <tr class="bg-primary">
+                                                <th>Ảnh</th>
+                                                <th>TenNhanVien</th>
+                                                <th>Chức vụ</th>
+                                                <th>Số điện thoại</th>
+                                                <th></th>
+                                            </tr>
+
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in SV19T1081018.BusinessLayer.CommonDataService.ListOfNhanVien())
+                                            {
+                                                <form class="form-horizontal" action="~/calendar/save" method="post">
+                                                <tr>
+                                                    <input type="hidden" name="MaThu" value="@j">
+                                                    <input type="hidden" name="MaCaLamViec" value="@i">
+                                                    <input type="hidden" name="TenNhanVien" value="@item.TenNhanVien">
+                                                    <input type="hidden" name="MaChucVu" value="@item.MaChucVu">
+                                                    <input type="hidden" name="MaNhanVien" value="@item.MaNhanVien">
+                                                    <td>
+                                                        <img src="@item.Anh" />
+                                                    </td>
+                                                    <td>@item.TenNhanVien</td>
+                                                    @foreach (var t in SV19T1081018.BusinessLayer.CommonDataService.ListOfChucVu())
+                                                    {
+                                                        if (item.MaChucVu == t.MaChucVu)
+                                                        {
+                                                            <td>@t.TenChucVu</td>
+                                                        }
+
+                                                    }
+
+                                                    <td>@item.SoDienThoai</td>
+                                                    @if (SV19T1081018.BusinessLayer.CommonDataService.CheckNV(j, i, item.MaNhanVien) == 1)
+                                                    {
+                                                        <td><button type="submit" name="Xoa" value="2" class="btn-danger"><i class="fa fa-remove">Xóa</i></button></td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td><button type="submit" name="Them" value="1" class="btn-primary">Thêm</button></td>
+                                                    }
+
                                                 </tr>
+                                                </form>
+                                            }
+                                        </tbody>
 
-                                            </thead>
-                                            <tbody>
-                                                @foreach (var item in SV19T1081018.BusinessLayer.CommonDataService.ListOfNhanVien())
-                                                {
-                                                    <tr>
-                                                        <input type="hidden" name="MaThu" value="@j">
-                                                        <input type="hidden" name="MaCaLamViec" value="@i">
-                                                        <input type="hidden" name="TenNhanVien" value="@item.TenNhanVien">
-                                                        <input type="hidden" name="MaChucVu" value="@item.MaChucVu">
-                                                        <input type="hidden" name="MaNhanVien" value="@item.MaNhanVien">
-                                                        <td>
-                                                            <img src="@item.Anh" />
-                                                        </td>
-                                                        <td>@item.TenNhanVien</td>
-                                                        @foreach (var t in SV19T1081018.BusinessLayer.CommonDataService.ListOfChucVu())
-                                                        {
-                                                            if (item.MaChucVu == t.MaChucVu)
-                                                            {
-                                                                <td>@t.TenChucVu</td>
-                                                            }
-
-                                                        }
-
-                                                        <td>@item.SoDienThoai</td>
-                                                        @if (SV19T1081018.BusinessLayer.CommonDataService.CheckNV(j, i, item.MaNhanVien) == 1)
-                                                        {
-                                                            <td><button type="submit" name="Xoa" value="2" class="btn-danger"><i class="fa fa-remove">Xóa</i></button></td>
-                                                        }
-                                                        else
-                                                        {
-                                                            <td><button type="submit" name="Them" value="1" class="btn-primary">Thêm</button></td>
-                                                        }
-
-                                                    </tr>
-                                                }
-                                            </tbody>
-
-                                        </table>
-                                    </form>
+                                    </table>
 
                                 </div>
                                 <!-- /.box-body -->

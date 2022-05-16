@@ -1,0 +1,49 @@
+﻿@model SV19T1081018.DomainModel.ChucVu
+@{
+    ViewBag.Title = "Xóa người giao hàng";
+}
+
+<div class="box box-">
+    <div class="box-body">
+        <form class="form-horizontal" action="~/position/delete/@Model.MaChucVu" method="post">
+            <div class="form-group">
+                <label class="control-label col-sm-2 ">Tên chức vụ</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.TenChucVu</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2 ">Tiền lương:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.TienLuong</p>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa fa-remove"></i> Đồng ý xóa
+                    </button>
+
+                    <a href="~/position" class="btn btn-success">
+                        <i class="fa fa-backward"></i>Quay lại
+                    </a>
+                </div>
+
+            </div>
+            @if (ViewBag.noti == 1)
+            {
+                <p style="text-align:center; color: red">Không xoá được chức vụ này vì có liên quan đến trường dữ liệu khác</p>
+            }
+        </form>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+
+    </div>
+    <!-- /.box-footer-->
+</div>
+

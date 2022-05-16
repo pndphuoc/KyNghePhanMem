@@ -122,14 +122,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IncomeController.cs" />
+    <Compile Include="Controllers\ShiftController.cs" />
     <Compile Include="Controllers\TimekeepingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BasePaginationResult.cs" />
+    <Compile Include="Models\CaLamViecPaginationResult.cs" />
+    <Compile Include="Models\PositionPaginationResult.cs" />
     <Compile Include="Models\CongPaginationResult.cs" />
     <Compile Include="Models\CongPaginationSearchInput.cs" />
     <Compile Include="Models\EmployeePaginationResult.cs" />
@@ -5795,6 +5799,15 @@
     <Content Include="Views\Timekeeping\EditCong.cshtml" />
     <Content Include="Views\Timekeeping\CreateCong.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Position\Search.cshtml" />
+    <Content Include="Views\Position\Create.cshtml" />
+    <Content Include="Views\Position\Delete.cshtml" />
+    <Content Include="Views\Position\Index.cshtml" />
+    <Content Include="Views\Shift\Index.cshtml" />
+    <Content Include="Views\Shift\Search.cshtml" />
+    <Content Include="Views\Shift\Create.cshtml" />
+    <Content Include="Views\Shift\Delete.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppCodes\" />
