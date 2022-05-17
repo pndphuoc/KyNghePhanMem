@@ -1,0 +1,81 @@
+﻿@using SV19T1081018.DomainModel
+@model SV19T1081018.Web.Models.NguoiDungPaginationResult
+@{
+    Layout = null;
+}
+
+
+
+<div class="box-body">
+    <strong>@Model.RowCount</strong> tài khoản trong tổng số <strong>@Model.PageCount</strong> trang</p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover" style="border-radius: 10px">
+            <thead>
+                <tr class="bg-primary">
+                    <th>Mã tài khoản người dùng:</th>
+                    <th>Họ tên chủ tài khoản: </th>
+                    <th>Tên đăng nhập: </th>
+                    <th>Ảnh</th>
+                    <th>Là chủ cửa hàng?</th>
+
+                    <th style="width: 80px">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Data)
+                {
+                    <tr>
+                        <td style="width: 100px">@item.MaNguoiDung</td>
+                        <td>@item.HoTen</td>
+                        <td>@item.Username</td>
+                        <td>
+                            <img src=" @item.Anh" style="height: 100px; width: 70px" />
+                        </td>
+                        @if (item.isChuCuaHang == true)
+                        {
+                            <td>Đúng</td>
+                        }
+                        else
+                        {
+                            <td>Sai</td>
+                        }
+
+
+                    <td class="text-right">
+                        @if (((NguoiDung)Session["Account"]).isChuCuaHang == true)
+                        {
+
+                            <a href="~/account/edit/@item.MaNguoiDung" class="btn btn-primary btn-flat btn-xs"> <i class="fa fa-edit"> </i></a>
+                            <a href="~/account/delete/@item.MaNguoiDung" class="btn btn-danger btn-flat btn-xs"> <i class="fa fa-remove"> </i></a>
+                        }
+                        else
+                        {
+                            <button disabled class="btn btn-primary btn-flat btn-xs"> <i class="fa fa-edit"> </i></button>
+                            <button disabled class="btn btn-danger btn-flat btn-xs"> <i class="fa fa-remove"> </i></button>
+                        }
+                    </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+<div class="box-footer text-center">
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (i == Model.Page)
+            {
+                <li class="active"><a href="#">@i</a></li>
+            }
+            else
+            {
+                <li><a href="javascript:;" onclick="doSearch(@i)">@i</a></li>
+            }
+        }
+    </ul>
+</div>

@@ -38,6 +38,12 @@
     </div>
 </div>
 <div class="table-responsive">
+    <form action="~/calendar" method="post">
+        <button class="btn btn-success" style="margin-left:850px;margin-bottom:10px" name="reset" value="1">
+            <i class="fa fa-recycle"
+               onclick="return confirm('Bạn muốn reset lịch tuần này hay không?')"> Reset lịch làm việc</i>
+        </button>
+    </form>
     <table class="table table-bordered table-striped table-hover">
         <thead>
             <tr class="bg-primary">
@@ -175,15 +181,16 @@
                                         <tbody>
                                             @foreach (var item in SV19T1081018.BusinessLayer.CommonDataService.ListOfNhanVien())
                                             {
-                                                <form class="form-horizontal" action="~/calendar/save" method="post">
+
                                                 <tr>
-                                                    <input type="hidden" name="MaThu" value="@j">
-                                                    <input type="hidden" name="MaCaLamViec" value="@i">
-                                                    <input type="hidden" name="TenNhanVien" value="@item.TenNhanVien">
-                                                    <input type="hidden" name="MaChucVu" value="@item.MaChucVu">
-                                                    <input type="hidden" name="MaNhanVien" value="@item.MaNhanVien">
+                                                    <form class="form-horizontal" action="~/calendar/save" method="post">
+                                                        <input type="hidden" name="MaThu" value="@j">
+                                                        <input type="hidden" name="MaCaLamViec" value="@i">
+                                                        <input type="hidden" name="TenNhanVien" value="@item.TenNhanVien">
+                                                        <input type="hidden" name="MaChucVu" value="@item.MaChucVu">
+                                                        <input type="hidden" name="MaNhanVien" value="@item.MaNhanVien">
                                                     <td>
-                                                        <img src="@item.Anh" />
+                                                        <img src="@item.Anh" style="height: 100px; width: auto"/>
                                                     </td>
                                                     <td>@item.TenNhanVien</td>
                                                     @foreach (var t in SV19T1081018.BusinessLayer.CommonDataService.ListOfChucVu())
@@ -204,9 +211,9 @@
                                                     {
                                                         <td><button type="submit" name="Them" value="1" class="btn-primary">Thêm</button></td>
                                                     }
-
+                                                    </form>
                                                 </tr>
-                                                </form>
+
                                             }
                                         </tbody>
 

@@ -13,5 +13,6 @@ namespace SV19T1081018.DomainModel
         public string Password { get; set; }
         public string HoTen { get; set; }
         public bool isChuCuaHang { get; set; }
+        public string Anh { get; set; }
     }
 }

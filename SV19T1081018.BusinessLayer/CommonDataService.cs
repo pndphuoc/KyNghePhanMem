@@ -21,6 +21,7 @@ namespace SV19T1081018.BusinessLayer
         private static readonly ICommonDAL<ChucVu> chucVuDB;
         private static readonly ICommonDAL<CaLamViec> caLamViecDB;
         private static readonly INguoiDungDAL nguoiDungDB;
+        private static readonly ILuongDAL luongDB;
         static CommonDataService()
         {
             string provider = ConfigurationManager.ConnectionStrings["DB"].ProviderName;
@@ -36,6 +37,7 @@ namespace SV19T1081018.BusinessLayer
                     chucVuDB = new DataLayer.SQLServer.ChucVuDAL(connectionString);
                     caLamViecDB = new DataLayer.SQLServer.CaLamViecDAL(connectionString);
                     nguoiDungDB = new DataLayer.SQLServer.NguoiDungDAL(connectionString);
+                    luongDB = new DataLayer.SQLServer.LuongDAL(connectionString);
                     break;
             }
         }
@@ -247,10 +249,63 @@ namespace SV19T1081018.BusinessLayer
         }
         #endregion
 
-        #region
+        #region Người dùng
         public static NguoiDung GetNguoiDung(int MaNguoiDung)
         {
             return nguoiDungDB.Get(MaNguoiDung);
+        }
+        public static bool UpdateNguoiDung(NguoiDung data)
+        {
+            return nguoiDungDB.Update(data);
+        }
+        public static int AddNguoiDung(NguoiDung data)
+        {
+            return nguoiDungDB.Add(data);
+        }
+        public static List<NguoiDung> ListOfNguoiDung(int page, int pageSize, string searchValue, out int rowCount)
+        {
+            rowCount = nguoiDungDB.Count(searchValue);
+            return nguoiDungDB.List(page, pageSize, searchValue);
+        }
+        public static bool DeleteNguoiDung(int MaNguoiDung)
+        {
+            return nguoiDungDB.Delete(MaNguoiDung);
+        }
+        #endregion
+        #region Lương
+        public static bool TraLuong(int MaLuong)
+        {
+            return luongDB.TraLuong(MaLuong);
+        }
+        public static List<TienThuongPhat> GetThuongPhat(int MaLuong)
+        {
+            return luongDB.GetThuongPhat(MaLuong);
+        }
+        public static int Add(TienThuongPhat data)
+        {
+            return luongDB.Add(data);
+        }
+        public static bool Update(TienThuongPhat data)
+        {
+            return luongDB.Update(data);
+        }
+        public static bool Delete(int? MaTienThuongPhat)
+        {
+            return luongDB.Delete(Convert.ToInt32(MaTienThuongPhat));
+        }
+        public static TienThuongPhat Get(int? MaTienThuongPhat)
+        {
+            return luongDB.Get(Convert.ToInt32(MaTienThuongPhat));
+        }
+        public static List<Luong> ListOfLuong(int page,
+                                                        int pageSize,
+                                                        string searchValue,
+                                                        int Thang,
+                                                        int Nam,
+                                                        out int rowCount)
+        {
+            rowCount = luongDB.Count(searchValue, Thang, Nam);
+            return luongDB.List(page, pageSize, searchValue, Thang, Nam).ToList();
         }
         #endregion
     }

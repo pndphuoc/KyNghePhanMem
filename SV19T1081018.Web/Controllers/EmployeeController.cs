@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -33,6 +34,7 @@ namespace SV19T1081018.Web.Controllers
             // trả về một model cho trang view có tên cùng tên với Index trong employee 
             return View(model);
         }
+
         /// <summary>
         /// Tìm kiếm nhân viên
         /// </summary>
@@ -144,9 +146,18 @@ namespace SV19T1081018.Web.Controllers
                 ModelState.AddModelError("SoDienThoai", "Số Điện Thoại không hợp lệ");
             else
             {
-                if (model.SoDienThoai.Length > 10)
+                Regex regex = new Regex(@"^[0-9]*[0-9]+$");
+                // sử dụng chuỗi regex chuỗi bắt đầu bằng không hoặc nhiều số và kết thức bằng một hoặc nhiều số 
+                if (regex.IsMatch(model.SoDienThoai) == false)
+                {// kiểm tra điều kiện số điện thoại được nhập có phải là chữ số hay không
+                    ModelState.AddModelError("SoDienThoai", "Số điện thoại phải là chữ số");
+
+                }
+
+                if (model.SoDienThoai.Length > 10 || model.SoDienThoai.Length < 9)
+                //kiểm tra xem số điện thoại được nhập vào có đủ số hay không
                 {
-                    ModelState.AddModelError("SoDienThoai", "Số Điện Thoại phải dưới 10 chữ số");
+                    ModelState.AddModelError("SoDienThoai", "Số Điện Thoại được nhập phải 9 chữ số");
 
                 }
             }

@@ -1,0 +1,80 @@
+﻿@model SV19T1081018.Web.Models.LuongPaginationResult
+@{
+    Layout = null;
+}
+<div class="box-body">
+
+    <p style="margin:10px 0 10px 0">
+        Có <strong>@Model.RowCount</strong> lương nhân viên trong tổng số <strong>@Model.PageCount</strong> trang
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr class="bg-primary">
+                    <th>Tên nhân viên</th>
+                    <th>Tháng</th>
+                    <th>Tổng công</th>
+                    <th>Tổng lương</th>
+                    <th>Nhận lương</th>
+                    <th style="width:100px">Xét thưởng phạt</th>
+                    <th style="width:75px">Trả lương</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Data)
+                {
+                    <tr>
+
+                        <td style="vertical-align:middle">@item.TenNhanVien</td>
+                        <td style="vertical-align:middle">
+                            @item.Thang / @item.Nam
+                        </td>
+                        <td></td>
+                        <td style="vertical-align:middle">@item.TongLuong</td>
+                        @if (@item.DaNhan)
+                        {
+                            <td style="vertical-align:middle">Đã nhận lương</td>
+                        }
+                        else
+                        {
+                            <td style="vertical-align:middle">Chưa nhận lương</td>
+                        }
+
+                        <td class="text-right" style="vertical-align:middle">
+                            <a href="~/Income/ThuongPhat/@item.MaLuong" class="btn btn-xs btn-flat btn-info">
+                                <i class="fa fa-edit"></i>
+                            </a>
+
+                        </td>
+                        <td class="text-right" style="vertical-align:middle">
+                            <a href="~/Income/TraLuong/@item.MaLuong" class="btn btn-xs btn-flat btn-info">
+                                <i class="fa fa-ticket"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- /.box-body -->
+<div class="box-footer text-center">
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (i == Model.Page)
+            {
+                <li class="active"><a href="#">@i</a></li>
+            }
+            else
+            {
+                <li><a href="javascript:;" onclick="doSearch(@i)">@i</a></li>
+            }
+        }
+
+    </ul>
+</div>
+

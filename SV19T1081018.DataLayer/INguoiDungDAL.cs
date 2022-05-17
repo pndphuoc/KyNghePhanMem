@@ -16,7 +16,7 @@ namespace SV19T1081018.DataLayer
         /// <param name="pageSize">Số dòng mỗi trang (0 nếu không phân trang)</param>
         /// <param name="searchValue">Giá trị tìm kiếm, để rỗng nếu không tìm kiếm</param>
         /// <returns></returns>
-        IList<NguoiDung> List(int page = 1, int pageSize = 0, string searchValue = "");
+        List<NguoiDung> List(int page = 1, int pageSize = 0, string searchValue = "");
         /// <summary>
         /// Đếm số dòng kết quả khi tìm kiếm
         /// </summary>

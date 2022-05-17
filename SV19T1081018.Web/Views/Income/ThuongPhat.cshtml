@@ -1,0 +1,65 @@
+﻿
+@model SV19T1081018.Web.Models.ThuongPhatPaginationResult
+@{
+    
+}
+
+<div class="box box-success">
+    <div class="box-header with-border ">
+        <h3 class="box-title">Thưởng phạt</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="box-body">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr class="bg-gray">
+                    <th>Lý do</th>
+                    <th>Số tiền phạt, thưởng</th>
+                    <th class="text-right">
+                        <a class="btn btn-xs btn-primary" href="~/income/SetThuongPhat/add/@Model.MaLuong">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var atr in Model.Data)
+                {
+                    <tr>
+                        <td style="vertical-align:middle">@atr.LyDo</td>
+                        <td style="vertical-align:middle;">@atr.SoTienPhat</td>
+
+                        <td style="vertical-align:middle; text-align:right">
+                            <a class="btn btn-xs btn-primary" href="~/income/SetThuongPhat/edit/@atr.MaLuong/@atr.MaTienThuongPhat">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a class="btn btn-xs btn-danger" href="~/income/SetThuongPhat/delete/@atr.MaLuong/@atr.MaTienThuongPhat" onclick="return confirm('Xóa thưởng phạt?')">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+
+
+
+            </tbody>
+        </table>
+        <div style="margin-top:20px" class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+
+                <a class="btn btn-warning" href="~/income/index">
+                    <i class="fa fa-ban"></i> Quay lại
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+
+</div>

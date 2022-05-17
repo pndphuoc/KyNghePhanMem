@@ -13,6 +13,21 @@ namespace SV19T1081018.DataLayer.SQLServer
         public LichLamViecDAL(string connectionString) : base(connectionString)
         {
         }
+        public bool Reset()
+        {
+            bool result = false;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"DELETE  FROM LichLamViec";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+                result = cmd.ExecuteNonQuery() > 0;
+
+                cn.Close();
+            }
+            return result;
+        }
 
         public bool Add(LichLamViec data)
         {

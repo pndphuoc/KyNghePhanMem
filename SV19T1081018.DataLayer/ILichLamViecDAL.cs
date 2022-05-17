@@ -13,5 +13,6 @@ namespace SV19T1081018.DataLayer
         int Check(int MaThu, int MaCaLamViec, int MaNhanVien);
         bool Add(LichLamViec data);
         bool Delete(LichLamViec data);
+        bool Reset();
     }
 }

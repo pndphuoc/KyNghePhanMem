@@ -10,6 +10,7 @@ namespace SV19T1081018.DomainModel
     {
         public int MaLuong { get; set; }
         public int MaNhanVien { get; set; }
+        public string TenNhanVien { get; set; }
         public int Thang { get; set; }
         public int Nam { get; set; }
         public int TongLuong { get; set; }

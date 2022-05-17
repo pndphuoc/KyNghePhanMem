@@ -85,6 +85,12 @@ namespace SV19T1081018.Web.Controllers.NewFolder1
             return View(model);
         }
 
+        public ActionResult CreateCong(Cong model)
+        {
+            ViewBag.Title = "Thêm công";
+            return View(model);
+        }
+
 
         [Route("editcong/{MaNhanVien}/{MaCong}")]
         public ActionResult EditCong(int MaNhanVien, int MaCong)
@@ -96,16 +102,25 @@ namespace SV19T1081018.Web.Controllers.NewFolder1
         [HttpPost]
         public ActionResult Save(Cong model)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    ViewBag.Title = model.MaCong == 0 ? "Bổ sung công làm việc" : "Cập nhật công của nhân viên";
-            //    return View("Create", model);
-
-            //}
+            if(model.ThoiGianVaoCa.Length<7)
+            if (model.ThoiGianVaoCa == null)
+            {
+                ModelState.AddModelError("ThoiGianVaoCa", "Thời gian vào ca không được để trống");
+            }
+            if (model.ThoiGianKetThuc == null)
+            {
+                ModelState.AddModelError("ThoiGianKetThuc", "Thời gian kết thúc không được để trống");
+            }
+            if (!ModelState.IsValid)
+            {
+                return View("CreateCong", model);
+            }
             if (model.MaCong > 0)
                 CommonDataService.UpdateCong(model);
             else
+            {
                 CommonDataService.AddCong(model);
+            }
             //else
             //{
             //    PaginationSearchInput input = new PaginationSearchInput();

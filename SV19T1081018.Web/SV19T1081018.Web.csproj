@@ -133,12 +133,16 @@
     </Compile>
     <Compile Include="Models\BasePaginationResult.cs" />
     <Compile Include="Models\CaLamViecPaginationResult.cs" />
+    <Compile Include="Models\LuongPaginationResult.cs" />
+    <Compile Include="Models\LuongSearchValue.cs" />
+    <Compile Include="Models\NguoiDungPaginationResult.cs" />
     <Compile Include="Models\PositionPaginationResult.cs" />
     <Compile Include="Models\CongPaginationResult.cs" />
     <Compile Include="Models\CongPaginationSearchInput.cs" />
     <Compile Include="Models\EmployeePaginationResult.cs" />
     <Compile Include="Models\NhanVienPaginationResult.cs" />
     <Compile Include="Models\PaginationSearchInput.cs" />
+    <Compile Include="Models\ThuongPhatPaginationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -5808,6 +5812,13 @@
     <Content Include="Views\Shift\Create.cshtml" />
     <Content Include="Views\Shift\Delete.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\Search.cshtml" />
+    <Content Include="Views\Income\Index.cshtml" />
+    <Content Include="Views\Income\Search.cshtml" />
+    <Content Include="Views\Income\SetThuongPhat.cshtml" />
+    <Content Include="Views\Income\ThuongPhat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppCodes\" />

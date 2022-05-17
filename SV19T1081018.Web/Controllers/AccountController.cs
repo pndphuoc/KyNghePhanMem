@@ -1,4 +1,6 @@
-﻿using SV19T1081018.DomainModel;
+﻿using SV19T1081018.BusinessLayer;
+using SV19T1081018.DomainModel;
+using SV19T1081018.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +12,69 @@ using System.Web.Mvc;
 namespace SV19T1081018.Web.Controllers
 {
     [Authorize]
+    [RoutePrefix("Account")]
     /// <summary>
     /// 
     /// </summary>
     public class AccountController : Controller
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index()
+        {
+            PaginationSearchInput model = Session["ACCOUNT_SEARCH"] as PaginationSearchInput;
+
+            if (model == null)
+            {
+                model = new PaginationSearchInput()
+                {
+                    Page = 1,
+                    PageSize = 10,
+                    SearchValue = ""
+                };
+            }
+            // trả về một model cho trang view có tên cùng tên với Index trong employee 
+            return View(model);
+        }
+
+        public ActionResult Search(Models.PaginationSearchInput input)
+        {
+            int rowCount = 0;
+            //Phương thức được lấy từ commondataservice
+            var data = BusinessLayer.CommonDataService.ListOfNguoiDung(input.Page, input.PageSize, input.SearchValue, out rowCount);
+            // phương thức dùng để đếm số hàng trong mỗi lần phân trang
+            Models.NguoiDungPaginationResult model = new Models.NguoiDungPaginationResult()
+            {
+                Page = input.Page,
+                PageSize = input.PageSize,
+                SearchValue = input.SearchValue,
+                RowCount = rowCount,
+                Data = data
+            };
+
+            Session["ACCOUNT_SEARCH"] = input;
+
+            return View(model);
+        }
+
+        public ActionResult Create()
+        {
+            NguoiDung model = new NguoiDung()
+            {
+                MaNguoiDung = 0
+            };
+
+            ViewBag.Title = "Thêm mới tài khoản";
+            return View(model);
+        }
+        [Route("edit/{MaNguoiDung}")]
+        public ActionResult Edit(int MaNguoiDung)
+        {
+            NguoiDung model = CommonDataService.GetNguoiDung(MaNguoiDung);
+            return View("Create", model);
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -57,14 +117,14 @@ namespace SV19T1081018.Web.Controllers
             Session.Clear();
             return RedirectToAction("Login");
         }
-        [Route("Edit/{MaNhanVien}")]
-        public ActionResult Edit(int MaNhanVien)
+        [Route("account/EditInfomation/{MaNhanVien}")]
+        public ActionResult EditInfomation(int MaNhanVien)
         {
             NguoiDung model = SV19T1081018.BusinessLayer.CommonDataService.GetNguoiDung(MaNhanVien);
             if (model == null)
                 return RedirectToAction("Index");
             ViewBag.Title = "Thông Tin Cá Nhân";
-            return View("Create", model);
+            return View(model);
         }
 
         /// <summary>
@@ -102,15 +162,43 @@ namespace SV19T1081018.Web.Controllers
         /// <param name="reNewPassword"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Save(string oldPassword, string newPassword, string reNewPassword)
+        public ActionResult Save(string oldPassword, string newPassword, string reNewPassword, NguoiDung model, HttpPostedFileBase uploadPhoto)
         {
-            //Mã hóa các mật khẩu nhập vào
-            //oldPassword = encodedPassword(oldPassword);
-            //newPassword = encodedPassword(newPassword);
-            //reNewPassword = encodedPassword(reNewPassword);
 
             //Lấy session nhân viên 
             NguoiDung acc = Session["Account"] as NguoiDung;
+            if(model!=null)
+            {
+                if (uploadPhoto != null)
+                {
+                    string path = Server.MapPath("~/images/employees");
+                    string fileName = $"{DateTime.Now.Ticks}_{uploadPhoto.FileName}";
+                    string uploadFilePath = System.IO.Path.Combine(path, fileName);
+                    uploadPhoto.SaveAs(uploadFilePath);
+                    model.Anh = $"/Images/Employees/{fileName}";
+                }
+                if (model.MaNguoiDung > 0)
+                {
+                    CommonDataService.UpdateNguoiDung(model);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    PaginationSearchInput input = new PaginationSearchInput();
+                    CommonDataService.AddNguoiDung(model);
+
+                    input = new PaginationSearchInput()
+                    {
+                        Page = 1,
+                        PageSize = 10,
+                        SearchValue = model.HoTen
+                    };
+                    Session["ACCOUNT_SEARCH"] = input;
+                    return RedirectToAction("Index");
+                }
+            }
+
+
             //Nếu không có thì get từ User.Identity.Name (email của nhân viên)           
             if (acc == null)
             {
