@@ -11,8 +11,10 @@ namespace SV19T1081018.Web.Controllers
     [Authorize]
     public class CalendarController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int? Reset)
         {
+            if (Reset == 1)
+                CommonDataService.ResetLich();
             return View();
         }
         public ActionResult Save(int Mathu, int MaCaLamViec, string TenNhanVien, int MaChucVu, int MaNhanVien, int? Xoa, int? Them)

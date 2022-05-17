@@ -247,6 +247,10 @@ namespace SV19T1081018.BusinessLayer
         {
             return lichlamviecDB.Delete(data);
         }
+        public static bool ResetLich()
+        {
+            return lichlamviecDB.Reset();
+        }
         #endregion
 
         #region Người dùng
