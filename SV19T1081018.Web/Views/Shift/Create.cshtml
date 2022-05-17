@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-2 ">Thời gian bắt đầu:</label>
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(m => m.ThoiGianBatDau, new { @class = "form-control" })
+                    <input type="time" name="ThoiGianBatDau" value="@Model.ThoiGianBatDau" style="border-radius: 10px;">
                     @Html.ValidationMessageFor(m => m.ThoiGianBatDau, "", new { @style = "color:#f00" })
                     @*<input type="text" class="form-control" name="Phone" id="Phone" placeholder="" value="@Model.Phone">*@
                 </div>
@@ -29,7 +29,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-2 ">Thời gian kết thúc:</label>
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(m => m.ThoiGianKetThuc, new { @class = "form-control" })
+                    <input type="time" name="ThoiGianKetThuc" value="@Model.ThoiGianKetThuc" style="border-radius: 10px;">
                     @Html.ValidationMessageFor(m => m.ThoiGianKetThuc, "", new { @style = "color:#f00" })
                     @*<input type="text" class="form-control" name="Phone" id="Phone" placeholder="" value="@Model.Phone">*@
                 </div>

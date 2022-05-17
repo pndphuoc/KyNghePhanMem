@@ -1,14 +1,14 @@
 ﻿@using SV19T1081018.DomainModel;
-@{ 
+@{
     Session["Account"] = SV19T1081018.BusinessLayer.AccountService.GetNguoiDung(Convert.ToString(User.Identity.Name));
 }
 <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="Home" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">Keycap<b>Store</b></span>
+        <span class="logo-lg">Thành<b>Caffe</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -19,36 +19,33 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                
+
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        
                         <span class="hidden-xs">@(((NguoiDung)Session["Account"]).HoTen)</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                           
+
 
                             <p>
-                                @(((NguoiDung)Session["Account"]).HoTen) 
+                                @(((NguoiDung)Session["Account"]).HoTen)
                             </p>
+                            <img src="@(((NguoiDung)Session["Account"]).Anh)"/>
 
-                           
                         </li>
 
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="~/account/EditInfomation/@(((NguoiDung)Session["Account"]).MaNguoiDung)">Thông Tin Cá Nhân</a>
-                            </div>
+
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="/account/changepassword" class="btn btn-default btn-flat" >Thay Đổi Mật Khẩu</a>
+                                <a href="~/NhanVien/Edit/@(((NguoiDung)Session["Account"]).MaNguoiDung)" class="btn btn-default btn-flat">Thông Tin Cá Nhân</a>
                             </div>
                             <div class="pull-right">
-                                <a href="~/account/logout" class="btn btn-default btn-flat" >Đăng xuất</a>
+                                <a href="~/account/logout" class="btn btn-default btn-flat">Đăng xuất</a>
                             </div>
                         </li>
                     </ul>
